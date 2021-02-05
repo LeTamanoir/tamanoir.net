@@ -30,7 +30,7 @@ Tamanoir.net is a simple web-application that allows its users to communicate th
         > - bullet list
         > - bullet list 
         >
-        > 1) numbered list
-        > 2) numbered list
+        > 1. ordered list
+        > 2. ordered list
 
 - Special users can access special features

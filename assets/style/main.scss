@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+@import "./scss/_variables";
+@import "./scss/_mixins";
+@import "./scss/_placeholders";
+
+@import "./scss/components/_header";
+@import "./scss/components/_main";
+@import "./scss/components/_navbar";
+@import "./scss/components/_footer";
+
+body {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+div {
+    width: 200px;
+    height: 200px;
+}
+div:nth-of-type(1) {
+    background-color: $black;
+}
+div:nth-of-type(2) {
+    background-color: $grey;
+}
+div:nth-of-type(3) {
+    background-color: $grey-light;
+}
+div:nth-of-type(4) {
+    background-color: $marine;
+}
+div:nth-of-type(5) {
+    background-color: $blue;
+}
+div:nth-of-type(8) {
+    background-color: $red;
+}
+div:nth-of-type(7) {
+    background-color: $white;
+}
+div:nth-of-type(6) {
+    background-color: $pale;
+}
+div:nth-of-type(9) {
+    background-color: $light;
+}
+div:nth-of-type(10) {
+    background-color: $electric;
+}
