@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+@import "./scss/_variables";
+@import "./scss/_mixins";
+@import "./scss/_placeholders";
+
+@import "./scss/components/_header";
+@import "./scss/components/_main";
+@import "./scss/components/_navbar";
+@import "./scss/components/_footer";
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Titillium Web', sans-serif;
+    background-color: $white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: $white; 
+}
+::-webkit-scrollbar-thumb {
+    background: $grey;
+    border-radius: 2px;
+}

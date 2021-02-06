@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    a {
+        margin: 10px 20px;
+        padding: 5px 15px;
+        text-decoration: none;
+        font-size: 1.5em;
+        color: $white;
+        border-radius: 25px;
+        &:nth-child(1) {
+            background-color: $electric;
+        }
+        &:nth-child(2) {
+            background-color: $marine;
+        }
+        &:nth-child(3) {
+            text-decoration: underline;
+            color: $black;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    } 
+}
+@include phone {
+    nav {
+        margin: 1em 0;
+        a {
+            font-size: 1.2em;
+            margin: 5px 10px;
+        }
+    }
+}
