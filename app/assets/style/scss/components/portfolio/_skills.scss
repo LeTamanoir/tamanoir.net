@@ -1,0 +1,65 @@
+#portfolio-skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    margin: 6em 0;
+    .svg-b { fill: $bg-3; }
+    & > div {
+        background-color: $bg-3;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        header {
+            width: 70%;
+            display: flex;
+            h2 {
+                padding: 10px 20px;
+                border-radius: 25px;
+                color: $white;
+                background-color: $marine;
+            }
+        }
+
+        & > div {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            
+            div {
+                display: flex;
+                align-items: center;
+                color: $black;
+                margin: 1em 0;
+                padding: .5em 0 .5em 1em;
+                font-size: 1.8em;
+                border-radius: 25px;
+                width: 30%;
+                transition: width 1.5s ease, color 1.5s ease;
+
+                &.deploy { color: $white; }
+                &:nth-child(1).deploy { background-color: $red; width: 80%; }
+                &:nth-child(2).deploy  { background-color: $electric; width: 99%; }
+                &:nth-child(3).deploy  { background-color: $yellow; width: 60%; }
+            }
+        }
+        p { width: 70%; }
+    }
+}
+
+@include phone {
+    #portfolio-skills {
+        & > div {
+            & > div {
+                width: 80%;
+                div {
+                    font-size: 1.2em;
+                    border-radius: 15px;
+                }
+            }
+        }
+    }
+}

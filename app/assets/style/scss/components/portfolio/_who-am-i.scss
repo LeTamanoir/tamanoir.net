@@ -1,0 +1,55 @@
+#portfolio-who-am-i {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3em 0;
+    header {
+        width: 70%;
+        display: flex;
+
+        h2 {
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: $white;
+            background-color: $electric;
+        }
+    }
+    div {
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            font-size: 2em;
+            width: auto;
+            color: $text;
+        }
+    }
+    div:nth-of-type(1) {
+        img {
+            width: 30%;
+            clip-path: circle(40% at 50% 50%);
+        }
+    }
+}
+
+@include phone {
+    #portfolio-who-am-i {
+        div {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 90%;
+            p {
+                font-size: 1.4em;
+                text-align: center;
+                margin: 0;
+            }
+            img {
+                width: 70%;
+                margin: 1em;
+                clip-path: circle(40% at 50% 50%);
+            }
+        }
+    }   
+}

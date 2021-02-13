@@ -1,0 +1,22 @@
+{
+    "short_name": "Tamanoir.net",
+    "name": "Tamanoir.net",
+    "icons": [
+      {
+        "src": "app/assets/images/icons/icons-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "app/assets/images/icons/icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#e9ecef",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#5762D5",
+    "description": "Tamanoir.net it a web-based chatting application"
+}

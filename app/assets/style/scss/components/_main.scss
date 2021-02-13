@@ -1,133 +1,70 @@
-#main {
-    width: 100%;
-    padding: 3em 0;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    p {
-        margin: 4em 1em 1em;
-        font-size: 2.6em;
-        color: $electric;
-    }
-    span {
-        font-weight: bold;
-        color: $red;
-    }
-    #bg-main {
-        top: 0;
-        position: absolute;
-        z-index: -1;
-    }
-    #anim {
-        margin: 0 3em;
-        width: 55vh;
-        height: auto;
-    }
-    #dropdown {
-        position: absolute;
-        bottom: 0;
-    }
-}
-
-@include phone {
-    #main {
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        p {
-            font-size: 2em;
-        }
-        #anim {
-            width: 60%;
-            margin: 2em 0;
-        }
-        #bg-main {
-            .desktop {
-                display: none;
-            }
-        }
-        #dropdown {
-            position: absolute;
-            bottom: -3em;
-
-        }
-    }
-}
-
-#description {
+#temp {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 6em 0;
-    .container {
+
+    ul {
+        width: 65%;
+        margin: 0 0 3em;
+        padding: 0;
         display: flex;
-        justify-content: center;
-        width: 100%;
-        background-color: $light;
-        div {
-            width: 60%;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+            width: 70%;
+            font-size: 1.4em;
+            color: $text;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            h2 {
-                background-color: $electric;
-                padding: 10px 20px;
-                border-radius: 25px;
-                color: $white;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1em 0;
+            list-style: none;
+            a {
+                display: flex;
+                justify-content: center;
             }
-            p {
-                font-size: 1.8em;
-                color: $black;
+            img {
+                margin-left: 4em;
+                width: 150px;
+                border-radius: 20px;
+
             }
-        }
-    }   
-}
-@include phone {
-    #description {
-        .container {
-            div {
-                width: 80%;
+            &:nth-child(1) {
+                img {
+                    background-color: $marine;
+                    border-radius: 100px;
+                }
             }
-            p {
-                font-size: 1.2em;
+            &:nth-child(2) {
+                img {
+                    padding: 2%;
+                    background-color: $light;
+                }
             }
-        }
-    }
-}
-#features {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 6em auto 6em;
-    p {
-        font-size: 1.6em;
-        color: $black;
-    }
-    h2 {
-        color: $white;
-        background-color: $red;
-        padding: 10px 20px;
-        border-radius: 25px;
-    }
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: center;
-        div {
-            width: 350px;
-            margin: 2em;
-            background-color: $light;
-            padding: 20px 30px;
-            border-radius: 25px;
         }
     }
 }
 @include phone {
-    #features {
-        width: 85%;
+    #temp {
+        ul {
+            width: 80%;
+            li {
+                width: 100%;
+                flex-direction: column-reverse;
+                margin: 1em 0;
+                text-align: center;
+
+                img {
+                    margin-left: 0;
+                    margin-bottom: 1em;
+                }
+            }
+        }
     }
+}
+
+main {
+    .svg-b { fill: $bg-1; }
 }

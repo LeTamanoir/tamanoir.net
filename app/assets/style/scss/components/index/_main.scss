@@ -1,0 +1,43 @@
+#index-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    
+    .svg-b { fill: $bg-1; }
+    .svg-t-d { fill: $text; }
+    .svg-t { fill: $anim-t; }
+
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: $bg-1;
+        padding: 4vh 0;
+
+    }
+    p { font-size: 5.6em; color: $white; }
+    span { font-weight: bold; }
+    .anim-2 {
+        width: 90%;
+        margin: 12em 0 6em;
+        overflow: visible;
+        .svg-b { fill: $card; }
+    }
+    .desktop { display: block; }
+    .mobile { display: none; }
+}
+@include phone {
+    #index-main {
+        flex-direction: column;
+        p {
+            width: 80%;
+            margin: 1em 0 2em;
+            font-size: 2.2em;
+        }
+        .anim-2 { margin: 6em 0 0; }
+        .desktop { display: none; }
+        .mobile { display: block; }
+    }
+}

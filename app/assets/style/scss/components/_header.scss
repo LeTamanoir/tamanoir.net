@@ -1,15 +1,14 @@
-header {
+body > header {
     display: flex;
     align-items: center;
     padding: 1em 2em;
     justify-content: space-between;
-    background-color: $pale;
 
-
+    background-color: $bg-1;
     h1 {
         margin: 0;
         font-size: 2.4em;
-        color: $black;
+        color: $white;
     }
     svg {
         position: absolute;
@@ -20,7 +19,7 @@ header {
 }
 
 @include phone {
-    header {
+    body > header {
         flex-direction: column;
     }
 }

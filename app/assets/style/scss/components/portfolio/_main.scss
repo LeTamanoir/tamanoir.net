@@ -1,0 +1,35 @@
+#portfolio-main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 6em;
+    .svg-b {
+        fill: $bg-1;
+    }
+    & > div {
+        width: 100%;
+        display: flex;
+        padding: 4vh 0;
+        justify-content: center;
+        background-color: $bg-1;
+
+        p { 
+            font-size: 5.6em;
+            color: $white;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}
+@include phone {
+    #portfolio-main {
+        & > div {
+            p {
+                width: 80%;
+                margin: 1em 0 2em;
+                font-size: 2.2em;
+            }
+        }
+
+    }
+}

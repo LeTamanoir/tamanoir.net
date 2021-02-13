@@ -9,6 +9,21 @@
 @import "./scss/components/_navbar";
 @import "./scss/components/_footer";
 
+@import "./scss/components/_darkmode";
+
+@import "./scss/components/index/_description";
+@import "./scss/components/index/_features";
+@import "./scss/components/index/_main";
+
+@import "./scss/components/portfolio/_main";
+@import "./scss/components/portfolio/_skills";
+@import "./scss/components/portfolio/_who-am-i";
+@import "./scss/components/portfolio/_contact";
+
+
+@import "./scss/components/app/_home";
+@import "./scss/components/app/_connection";
+
 body,html {
     margin: 0;
     padding: 0;
@@ -16,7 +31,7 @@ body,html {
 
 html {
     font-family: 'Titillium Web', sans-serif;
-    background-color: $white;
+    background-color: $bg-2;
 }
 
 body {
@@ -24,15 +39,13 @@ body {
     flex-direction: column;
 }
 
-
 ::-webkit-scrollbar {
     width: 10px;
     height: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: $white; 
+    background: $bg-2; 
 }
 ::-webkit-scrollbar-thumb {
-    background: $grey;
-    border-radius: 2px;
+    background: $black;
 }

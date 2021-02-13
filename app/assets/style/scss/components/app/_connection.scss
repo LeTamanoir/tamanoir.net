@@ -1,0 +1,65 @@
+#connection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 20px;
+        margin: 4em 0;
+        width:auto;
+        background-color: $bg-3;
+        border-radius: 10px;
+    }
+    .error {
+        font-size: 1.4em;
+        color: $red;
+    }
+    input {
+        padding: 10px;
+        margin: 10px;
+        font-size: 1.6em;
+        border-radius: 10px;
+        border: none;
+        background-color: $white;
+    }
+    .pass-container {
+        display: flex;
+        position: relative;
+        align-items: center;
+        .show-pass {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            img {
+                width: 40px;
+            }
+        }
+    }
+    input[type=submit] {
+        cursor: pointer;
+        background-color: $electric;
+        color: $white;
+        border: solid 2px $electric;
+        transition: background-color .2s ease, color .2s ease;
+        &:hover {
+            background-color: $white;
+            color: $electric;
+        }
+    }
+}
+
+@include phone {
+    #connection {
+        form {
+            width: 80vw;
+        }
+        input[type=password],input[type=text],input[type=username] { width: 70vw; }
+    }
+}

@@ -1,16 +1,31 @@
-footer {
+#index-footer, #portfolio-footer {
     width: 100%;
-    margin: 6em 0 0;
+    margin: 4em 0 0;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    text-align: center;
+
+    .svg-b { fill: $bg-3;}
+
     div {
         display: flex;
         justify-content: center;
-        background-color: $pale;
+        background-color: $bg-3;
     }
     p {
         font-size: 1.2em;
-        color: $black;
+        color: $text;
         margin: 0.5em;
+        a {
+            color: inherit;
+        }
+    }
+}
+
+@include phone {
+    #portfolio-footer, #index-footer {
+        p {
+            font-size: 1em;
+        }
     }
 }

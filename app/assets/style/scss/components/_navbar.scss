@@ -7,27 +7,32 @@ nav {
         font-size: 1.5em;
         color: $white;
         border-radius: 25px;
-        &:nth-child(1) {
-            background-color: $electric;
-        }
-        &:nth-child(2) {
-            background-color: $marine;
-        }
-        &:nth-child(3) {
-            text-decoration: underline;
-            color: $black;
-        }
+
+        background-color: $white;
+        color: $bg-1;
+        font-weight: bold;
         &:hover {
-            text-decoration: underline;
+            background-color: $light;
         }
-    } 
+    }
+    .logout {
+        color: $red;
+    }
+    .clicked {
+        background-color: $grey-light;
+    }
 }
+
 @include phone {
     nav {
         margin: 1em 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         a {
             font-size: 1.2em;
             margin: 5px 10px;
         }
     }
 }
+
