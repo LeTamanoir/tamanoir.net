@@ -1,6 +1,7 @@
 <?php
 
 namespace controllers;
+use models\messageModel;
 
 class pageController 
 {
@@ -19,5 +20,16 @@ class pageController
     public function home ($username,$useremail) {
         include('views/home.php');
     }
-   
+
+    public function inbox ($discussionID,$userID) {
+        $messageModel = new messageModel();
+        if (!empty($discussionID)) {
+            $messages = $messageModel->getDiscussion($discussionID);
+        }
+        $discussions = $messageModel->getDiscussions($userID);
+        include('views/inbox.php');
+    }
 }
+
+
+?>

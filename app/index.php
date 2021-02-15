@@ -53,7 +53,12 @@ else {
     
             break;
         case "Inbox":
-            $page->invox($username);
+            if (!empty($_GET['discussion'])) {
+                $page->inbox($_GET['discussion'],$userID);
+            }
+            else {
+                $page->inbox(null,$userID);
+            }
             break;
         case "Streaming":
             break;

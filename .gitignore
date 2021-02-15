@@ -1,1 +1,6 @@
 app/models/settings.php
+api/node_modules/
+api/package-lock.json
+api/package.json
+api/settings.env
+api/.env
