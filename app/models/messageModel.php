@@ -21,7 +21,7 @@ class messageModel
         return $discussion;
     }
 
-    public function getkMessageUserID ($messageID) {
+    public function getMessageUserID ($messageID) {
         $connection = new connectionDB();
         $conn = $connection->connection();
         $request = $conn->prepare("SELECT `author_id` FROM `messages` WHERE `id` = ?");
@@ -45,6 +45,35 @@ class messageModel
         $request = $conn->prepare("INSERT INTO `messages` (`content`, `date`, `discussion_id`, `author_id`) VALUES (?,?,?,?)");
         $request->execute([$content, date("Y:m:d H:i:s"), $discussionID, $userID]);
     }
+
+    public function checkUserInDiscussion ($discussionID,$userID) {
+        $connection = new connectionDB();
+        $conn = $connection->connection();
+        $request = $conn->prepare("SELECT `discussions`.`id` FROM `discussions` INNER JOIN `discussion_members` ON `discussions`.`id` = `discussion_members`.`id` AND `discussion_members`.`member_id` = ? AND `discussions`.`id` = ?");
+        $request->execute([$userID,$discussionID]);
+        $check = $request->fetch();
+        return $check;
+
+    }
+
+    public function getDiscussionCreator ($discussionID) {
+        $connection = new connectionDB();
+        $conn = $connection->connection();
+        $request = $conn->prepare("SELECT `creator_id` FROM `discussions` WHERE `id` = ?");
+        $request->execute([$discussionID]);
+        $creator = $request->fetch();
+        return $creator;
+    }
+
+    // public function checkUserInDiscussion ($discussionID,$userID) {
+    //     $connection = new connectionDB();
+    //     $conn = $connection->connection();
+    //     $request = $conn->prepare("");
+    //     $request->execute([$discussionID,$userID]);
+    //     $check = $request->fetch();
+        
+    //     if 
+    // }
 }
 
 ?>

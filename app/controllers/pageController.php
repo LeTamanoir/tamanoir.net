@@ -2,6 +2,7 @@
 
 namespace controllers;
 use models\messageModel;
+use classes\Parsedown;
 
 class pageController 
 {
@@ -23,10 +24,24 @@ class pageController
 
     public function inbox ($discussionID,$userID) {
         $messageModel = new messageModel();
-        if (!empty($discussionID)) {
-            $messages = $messageModel->getDiscussion($discussionID);
-        }
-        $discussions = $messageModel->getDiscussions($userID);
+
+        $discussionCreator = $messageModel->getDiscussionCreator($discussionID);
+        // $discussions = $messageModel->getDiscussions($userID);
+
+        // $check = $messageModel->checkUserInDiscussion($discussionID,$userID);
+
+        // if ($check) {
+        //     $messages = $messageModel->getDiscussion($discussionID);
+        // }
+
+        // if (!empty($discussionID)) {
+        //     foreach ($discussions as $discussion) {
+        //         if ($discussion['id'] === $discussionID) {
+        //             $messages = $messageModel->getDiscussion($discussionID);
+        //         }
+        //     }
+        // }
+
         include('views/inbox.php');
     }
 }

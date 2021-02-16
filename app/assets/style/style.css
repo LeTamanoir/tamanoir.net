@@ -158,6 +158,11 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 nav a {
@@ -246,8 +251,8 @@ nav .clicked {
 }
 
 #darkmode {
-  width: 60px;
-  height: 34px;
+  width: 68px;
+  height: 38px;
   border-radius: 25px;
   border: none;
   background-color: #f8f9fa;
@@ -1108,7 +1113,7 @@ nav .clicked {
 }
 
 #inbox #discussions {
-  margin: 2em 0;
+  margin: 1em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1124,13 +1129,13 @@ nav .clicked {
 }
 
 #inbox #discussions div a {
-  margin: 10px;
+  margin: 5px;
   color: #212529;
   background-color: #f8f9fa;
   border: 2px solid #212529;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border-radius: 25px;
-  font-size: 1.2em;
+  font-size: 1em;
   text-decoration: none;
 }
 
@@ -1143,10 +1148,135 @@ nav .clicked {
   text-decoration: underline;
 }
 
+#inbox #members-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#inbox #members-container > div:nth-child(2) {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#inbox #members-container > div:nth-child(2) div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#inbox #members-container > div:nth-child(2) div .error {
+  color: red;
+}
+
+#inbox #members-container #add-member {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-size: 20px 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f8f9fa;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 2px solid #5762D5;
+}
+
+#inbox #members-container #add-member.add {
+  background-image: url("/tamanoir.net/app/assets/svg/add_member.svg");
+}
+
+#inbox #members-container #add-member.confirm {
+  background-image: url("/tamanoir.net/app/assets/svg/confirm_member.svg");
+  border: 2px solid #5fad56;
+}
+
+#inbox #members-container #add-member.reject {
+  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  border: 2px solid #e63946;
+}
+
+#inbox #members-container #new-user {
+  background-color: #f8f9fa;
+  border: 2px solid #212529;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+#inbox #members-container #members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#inbox #members-container #members .member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #3d5a80;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 10px;
+  color: #f8f9fa;
+}
+
+#inbox #members-container #members .member p {
+  margin: 5px 0;
+}
+
+#inbox #members-container #members .member button {
+  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-size: 12px 12px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 2px;
+  margin-left: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e63946;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
 #inbox #messages {
   width: 80%;
-  height: 55vh;
-  overflow: scroll;
+  height: 600px;
+  overflow-y: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1174,18 +1304,22 @@ nav .clicked {
       -ms-flex-pack: start;
           justify-content: flex-start;
   background-color: var(--bg-3);
+  color: var(--text);
+  font-size: .9em;
 }
 
-#inbox #messages .message p {
-  margin: 0;
-}
-
-#inbox #messages .message img {
-  width: 80px;
+#inbox #messages .message > img {
+  width: 60px;
   border-radius: 100px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
-#inbox #messages .message div:nth-of-type(1) {
+#inbox #messages .message .content img {
+  max-width: 300px;
+}
+
+#inbox #messages .message > div:nth-of-type(1) {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1197,11 +1331,23 @@ nav .clicked {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+#inbox #messages .message > div:nth-of-type(1) > p {
   margin: 0 1em;
 }
 
-#inbox #messages .message div:nth-of-type(2) {
+#inbox #messages .message > div:nth-of-type(1) > div {
+  margin: 0 1em;
+}
+
+#inbox #messages .message > div:nth-of-type(1) pre, #inbox #messages .message > div:nth-of-type(1) code {
+  border-radius: 10px;
+}
+
+#inbox #messages .message > div:nth-of-type(2) {
   margin-left: auto;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1212,6 +1358,9 @@ nav .clicked {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #inbox #messages .message button {
@@ -1236,12 +1385,41 @@ nav .clicked {
       justify-content: space-around;
   background-color: var(--bg-3);
   padding: 1em 0;
-  border-radius: 50px;
+  border-radius: 20px;
+  margin: 1em 0;
+}
+
+#inbox #input > div {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#inbox #input #message-output {
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  background-color: #f8f9fa;
 }
 
 #inbox #input #message-input {
-  width: 80%;
+  resize: none;
+  width: 100%;
+  min-height: 60px;
   font-size: 1.2em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow-y: visible;
   padding: 10px;
   border: solid 2px #495057;
   background-color: #f8f9fa;
@@ -1258,9 +1436,88 @@ nav .clicked {
   border-radius: 25px;
 }
 
+@media (max-width: 799px) {
+  #inbox #messages {
+    width: 95%;
+  }
+  #inbox #messages .message {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #inbox #messages .message .date {
+    font-size: .8em;
+  }
+  #inbox #messages .message > img {
+    border-radius: 100px;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  #inbox #messages .message > div:nth-of-type(1) {
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #inbox #messages .message > div:nth-of-type(1) > p {
+    margin: 0 0 1em;
+  }
+  #inbox #messages .message > div:nth-of-type(1) > div {
+    margin: 0;
+  }
+  #inbox #messages .message > div:nth-of-type(1) pre, #inbox #messages .message > div:nth-of-type(1) code {
+    border-radius: 10px;
+  }
+  #inbox #messages .message > div:nth-of-type(2) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  #inbox #messages .message button {
+    margin: 0 0 0 1em;
+  }
+  #inbox #input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 95%;
+  }
+  #inbox #input #message-output {
+    width: 90%;
+  }
+  #inbox #input #message-input {
+    width: 90%;
+    padding: 5px;
+  }
+  #inbox #input #message-send {
+    padding: 5px 10px;
+    margin: 5px 10px;
+  }
+}
+
 body, html {
   margin: 0;
   padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html {

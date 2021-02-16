@@ -10,15 +10,21 @@ class messageController
         return $discussions;
     }
 
-    public function displayDiscussion ($discussionID) {
+    public function displayDiscussion ($discussionID,$userID) {
         $messageModel = new messageModel();
-        $discussion = $messageModel->getDiscussion($discussionID);
-        return $discussion;
+        $discussions = $messageModel->getDiscussions($userID);
+
+        foreach ($discussions as $discussion) {
+            if ($discussion['id'] === $discussionID) {
+                $discussion = $messageModel->getDiscussion($discussionID,$userID);
+                return $discussion;
+            }
+        }
     }
 
     public function deleteMessage ($messageID,$userID) {
         $messageModel = new messageModel();
-        $check = $messageModel->getkMessageUserID($messageID);
+        $check = $messageModel->getMessageUserID($messageID);
         if ($check['author_id'] === $userID) {
             $messageModel->deleteMessage($messageID);
         }
@@ -34,5 +40,6 @@ class messageController
         }
     }
 
+    
 } 
 ?>

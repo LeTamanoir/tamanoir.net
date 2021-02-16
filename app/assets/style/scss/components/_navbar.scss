@@ -1,5 +1,8 @@
 nav {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    
     a {
         margin: 10px 20px;
         padding: 5px 15px;

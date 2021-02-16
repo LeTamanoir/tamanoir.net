@@ -42,7 +42,6 @@ wss.on('connection', function connection(ws) {
 
     ws.send(JSON.stringify({info:'Successfully synced with the WS server ✅'}));
     
-    // console.log(wss.clients);
     ws.id = uuid.v4();
 
     
@@ -51,34 +50,35 @@ wss.on('connection', function connection(ws) {
         data = JSON.parse(data);
         
         if (data.request == 'initialise') {
-            wss.clients.forEach(function each(client) {
-                CLIENTS.push(JSON.stringify({client: client.id, conversation: data.conversation}));
-            })
+            // console.log(data);
+
+            ws.send(JSON.stringify({info:`connected to discussion ${data.discussion}`}))
+
+            CLIENTS.push({"client": ws.id, "discussion": data.discussion});
+            
+            // console.clear()
+            // console.log(CLIENTS);
+            // console.log('indic 2', CLIENTS)
+
         }
         else if (data.request == 'refresh') {
-            console.log('refresh')
-            CLIENTS.forEach(client => {
-                client = JSON.parse(client)
-                if (JSON.stringify(client.conversation) == JSON.stringify(data.conversation)) {
-                    wss.clients.forEach(wsClient => {
-                        if (JSON.stringify(wsClient.id) == JSON.stringify(client.client)) {
-                            wsClient.send(JSON.stringify({hello: 'lol'}))
-                        }
-                    })
-                }
-            })
-            console.log(wss.clients);
-            wss.clients.forEach(client => {
-                console.log(client.id)
-            })
-        }
-        else {
-            CLIENTS = []
-        }
+            // console.log('refresh')
+            // console.log(ws.id)
 
-        // console.log(CLIENTS)
+            wss.clients.forEach(client => {
+                // console.log(CLIENTS[index],client.id)
+                // console.log(CLIENTS[CLIENTS.map(x => x.client).indexOf(ws.id)].discussion)
+
+                if (CLIENTS[CLIENTS.map(x => x.client).indexOf(client.id)].discussion == CLIENTS[CLIENTS.map(x => x.client).indexOf(ws.id)].discussion) {
+                    // console.log(CLIENTS[CLIENTS.map(x => x.client).indexOf(client.id)])
+                    client.send(JSON.stringify({request: "refresh"}))
+                }
+                ws.send(JSON.stringify({info:`refreshing discussion : ${CLIENTS[CLIENTS.map(x => x.client).indexOf(ws.id)].discussion}`}))
+            });
+        }
     })
-    ws.on('close',() => {
-        CLIENTS = []
+    
+    ws.on('close', () => {
+        CLIENTS.splice(CLIENTS.map(x => x.client).indexOf(ws.id),1)
     })
 });

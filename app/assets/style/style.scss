@@ -30,6 +30,10 @@ body,html {
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-family: 'Titillium Web', sans-serif;
     background-color: $bg-2;

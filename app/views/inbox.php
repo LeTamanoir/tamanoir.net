@@ -1,77 +1,39 @@
 <main id="inbox">
-    <svg viewBox="0 0 1920 114" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="svg-b" d="M0.00012207 67.6779C294 221.678 660.5 -69.3221 960 67.6779C1259.5 204.678 1638 -65.3221 1920 67.6779V0H0.00012207V67.6779Z"/>
+    <svg viewBox="0 0 1920 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="svg-b" d="M-0.000106812 27.9022C294 91.3934 660.5 -28.5801 960 27.9022C1259.5 84.3846 1638 -26.931 1920 27.9022V0H-0.000106812V27.9022Z" fill="#5762D5"/>
     </svg>
-    <div id="discussions">
-        <?php if ($discussions) : ?>
-            <?php foreach ($discussions as $discussion) : ?>
-                <div class="discussion">
-                    <a class="<?php if ($_GET['discussion'] === $discussion['id']) { echo "clicked"; } ?>" href="?page=Inbox&discussion=<?= $discussion['id'] ?>"><?= $discussion['discussion'] ?></a>
+
+    <div id="discussions"></div>
+
+    <?php if (!empty($_GET['discussion'])) : ?>
+
+        <div id="members-container">
+            <div id="members"></div>
+            <div>
+                <div>
+                    <div id="new-member"></div>
+                    <div class="error"></div>
                 </div>
-            <?php endforeach ?>
-        <?php endif ?>
-    </div>
-    <div id="messages">
-        <?php if (isset($messages)) : ?>
-            <?php foreach ($messages as $message) : ?>
-                <div class="message">
-                    <?php if (file_exists('/var/www/WebSites/tamanoir.net/app/assets/images/profiles/'.$message['username'].'.png')) : ?>
-                        <img src="/tamanoir.net/app/assets/images/profiles/<?= $message['username'] ?>.png" alt="profile picture">
-                    <?php else : ?>
-                        <img src="/tamanoir.net/app/assets/images/profiles/default.png" alt="profile picture">
-                    <?php endif ?>
-                    <div>
-                        <p class="username"><?= $message['username']?></p>
-                        <p class="content"><?= $message['content']?></p>
-                    </div>
-                    <div>
-                        <p class="date"><?= $message['date']?></p>
-                        <?php if ($userID === $message['author_id']) : ?>
-                            <button onclick="deleteMessage(<?= $message['discussion_id'] ?>,<?= $message['id'] ?>)">delete</button>
-                        <?php endif ?>
-                    </div>
-                </div>
-            <?php endforeach ?>
-        <?php endif ?>
-    </div>
-    <?php if (isset($messages)) : ?>
+                <button id="add-member" class="add" title="add member"></button>
+            </div>
+        </div>
+
+        <div id="messages"></div>
+
         <div id="input">
-            <input type="text" id="message-input">
+            <div>
+                <div id="message-output"></div>
+                <textarea id="message-input"></textarea>
+            </div>
             <input type="submit" id="message-send" value="send">
         </div>
-        <script>
-            var discussionID = <?= $_GET['discussion'] ?>;
-        </script>
+
+        <script>var discussionID = <?= $_GET['discussion'] ?>;var userID = <?= $userID ?>;var discussionCreator = <?= $discussionCreator['creator_id'] ?>;</script>
+        <script defer src="assets/js/discussion.js"></script>
+        <script defer src="assets/js/members.js"></script>
+        <script defer src="assets/js/socket.js"></script>
+
     <?php endif ?>
-    <script defer src="assets/js/discussions.js">
-    </script>
-    <script>
-    var userID = <?= $userID ?>;
-    </script>
-    <script>
-        
 
-
-var refresh = () => {
-    messageContainer.innerHTML = '';
-    fetchMessages()
-    socket.send(JSON.stringify({request: 'refresh',conversation: [1,2]}));
-}
-
-const socket = new WebSocket('wss://www.tamanoir.net/api/socket');
-
-socket.onopen =  function () {
-    console.log('%cConnected to WS Server ✅', 'font-weight: bold; color: green;')
-    socket.send(JSON.stringify({request: 'initialise',conversation: [1,2]}));
-};
-
-
-socket.onmessage = function(msg) {
-    msg = JSON.parse(msg.data);
-    console.log(messageContainer,msg);
-};
-
-
-
-    </script>
+    <script defer src="assets/js/discussions.js"></script>
 </main>
