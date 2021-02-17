@@ -2,6 +2,7 @@
 
 namespace controllers;
 use models\messageModel;
+use models\discussionModel;
 use classes\Parsedown;
 
 class pageController 
@@ -23,9 +24,8 @@ class pageController
     }
 
     public function inbox ($discussionID,$userID) {
-        $messageModel = new messageModel();
-
-        $discussionCreator = $messageModel->getDiscussionCreator($discussionID);
+        $discussionModel = new discussionModel();
+        $discussionCreator = $discussionModel->getDiscussionCreator($discussionID);
         // $discussions = $messageModel->getDiscussions($userID);
 
         // $check = $messageModel->checkUserInDiscussion($discussionID,$userID);

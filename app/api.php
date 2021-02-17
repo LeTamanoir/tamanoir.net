@@ -6,6 +6,7 @@ autoloader::register();
 
 use controllers\messageController;
 use controllers\memberController;
+use controllers\discussionController;
 
 if (!empty($_SESSION)) {
     $userName = $_SESSION['username'];
@@ -16,11 +17,12 @@ if (!empty($_SESSION)) {
 
     $messageController = new messageController();
     $memberController = new memberController();
+    $discussionController = new discussionController();
 
     if (!empty($_GET['discussion'])) {
         switch ($_GET['discussion']) {
             case "all":
-                $discussions = $messageController->displayDiscussions($userID);
+                $discussions = $discussionController->displayDiscussions($userID);
                 echo json_encode($discussions);
                 break;
             default:
@@ -41,8 +43,16 @@ if (!empty($_SESSION)) {
                 elseif (!empty($_GET['delMember'])) {
                     $memberController->delMember($_GET['discussion'],$_GET['delMember'],$userID);
                 }
+                elseif (!empty($_GET['createDiscussion'])) {
+                    $info = $discussionController->createDiscussion($_GET['createDiscussion'],$userID);
+                    echo json_encode($info);
+                }
+                elseif (!empty($_GET['delDiscussion'])) {
+                    $info = $discussionController->delDiscussion($_GET['delDiscussion'],$userID);
+                    var_dump($info);
+                }
                 else {
-                    $discussion = $messageController->displayDiscussion($_GET['discussion'],$userID);
+                    $discussion = $discussionController->displayDiscussion($_GET['discussion'],$userID);
                     echo json_encode($discussion);
                 }
         }

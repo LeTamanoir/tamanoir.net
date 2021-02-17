@@ -34,8 +34,6 @@ class memberModel
         
     }
 
-    
-
     public function delMember ($discussionID,$memberID) {
         $connection = new connectionDB();
         $conn = $connection->connection();

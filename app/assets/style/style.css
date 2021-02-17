@@ -1112,8 +1112,46 @@ nav .clicked {
           align-items: center;
 }
 
-#inbox #discussions {
-  margin: 1em 0;
+#inbox #discussions-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10px;
+  margin: 2em 0 1em;
+  background-color: var(--bg-3);
+  border-radius: 25px;
+}
+
+#inbox #discussions-container .error {
+  color: red;
+}
+
+#inbox #discussions-container button {
+  background-color: #f8f9fa;
+  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-size: 12px 12px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 2px;
+  margin-left: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e63946;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#inbox #discussions-container #discussions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1124,11 +1162,11 @@ nav .clicked {
           justify-content: center;
 }
 
-#inbox #discussions div {
+#inbox #discussions-container #discussions div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 1em 0;
-}
-
-#inbox #discussions div a {
   margin: 5px;
   color: #212529;
   background-color: #f8f9fa;
@@ -1136,16 +1174,61 @@ nav .clicked {
   padding: 5px 10px;
   border-radius: 25px;
   font-size: 1em;
-  text-decoration: none;
 }
 
-#inbox #discussions div a.clicked {
+#inbox #discussions-container #discussions div.clicked {
   background-color: #212529;
+}
+
+#inbox #discussions-container #discussions div.clicked a {
   color: #f8f9fa;
 }
 
-#inbox #discussions div a:hover {
+#inbox #discussions-container #discussions div a {
+  text-decoration: none;
+  color: #212529;
+}
+
+#inbox #discussions-container #discussions div a:hover {
   text-decoration: underline;
+}
+
+#inbox #discussions-container #new-discussion-input {
+  background-color: #f8f9fa;
+  border: 2px solid #212529;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+#inbox #discussions-container #create-discussion {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-size: 20px 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f8f9fa;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 2px solid #5762D5;
+}
+
+#inbox #discussions-container #create-discussion.add {
+  background-image: url("/tamanoir.net/app/assets/svg/add_member.svg");
+}
+
+#inbox #discussions-container #create-discussion.confirm {
+  background-image: url("/tamanoir.net/app/assets/svg/confirm_member.svg");
+  border: 2px solid #5fad56;
+}
+
+#inbox #discussions-container #create-discussion.reject {
+  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  border: 2px solid #e63946;
 }
 
 #inbox #members-container {
@@ -1258,6 +1341,7 @@ nav .clicked {
 }
 
 #inbox #members-container #members .member button {
+  background-color: #f8f9fa;
   background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
   background-size: 12px 12px;
   -webkit-box-sizing: content-box;
@@ -1386,7 +1470,7 @@ nav .clicked {
   background-color: var(--bg-3);
   padding: 1em 0;
   border-radius: 20px;
-  margin: 1em 0;
+  margin: 1em 0 3em;
 }
 
 #inbox #input > div {

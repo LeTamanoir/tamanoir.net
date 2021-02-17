@@ -5,7 +5,7 @@ var newUser;
 
 addMember.addEventListener("click", () => {
     if (newMember.innerHTML == "") {
-        newMember.innerHTML = `<input type=text id="new-user">`;
+        newMember.innerHTML = `<input type=text id="new-user" placeholder="member name">`;
         addMember.classList.replace("add","reject");
         newUser = document.querySelector("#new-user");
     }
@@ -41,8 +41,11 @@ addMember.addEventListener("click", () => {
 })
 
 var deleteMember = (id) => {
-    fetch(`api.php?discussion=${discussionID}&delMember=${id}`)
-    .then(fetchMembers(discussionID));
+    if (confirm("delete member ?"))
+    {
+        fetch(`api.php?discussion=${discussionID}&delMember=${id}`)
+        .then(fetchMembers(discussionID));
+    }
 }
 
 var fetchMembers = (id) => {
@@ -51,8 +54,7 @@ var fetchMembers = (id) => {
     .then(members => {
         discussionMembers.innerHTML = '';
         members.forEach(member => {
-            console.log(member)
-            if (userID == discussionCreator) { discussionMembers.innerHTML += `<div class="member"><p>${member.username}</p><button onclick="deleteMember(${member.id})"></button></div>`; }
+            if (userID == discussionCreator && userID != member.id) { discussionMembers.innerHTML += `<div class="member"><p>${member.username}</p><button onclick="deleteMember(${member.id})"></button></div>`; }
             else { discussionMembers.innerHTML += `<div class="member"><p>${member.username}</p></div>`; }
         });
         scrollDown();

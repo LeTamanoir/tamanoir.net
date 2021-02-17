@@ -4,23 +4,6 @@ use models\connectionDB;
 
 class messageModel
 {
-    public function getDiscussions ($userID) {
-        $connection = new connectionDB();
-        $conn = $connection->connection();
-        $request = $conn->prepare("SELECT `discussions`.`id`,`discussions`.`discussion` FROM `discussions` INNER JOIN `discussion_members` ON `discussions`.`id` = `discussion_members`.`id` AND `discussion_members`.`member_id` = ?");
-        $request->execute([$userID]);
-        $discussions = $request->fetchAll();
-        return $discussions;
-    }
-    public function getDiscussion ($discussionID) {
-        $connection = new connectionDB();
-        $conn = $connection->connection();
-        $request = $conn->prepare("SELECT `messages`.`content`,`messages`.`discussion_id`,`messages`.`id`,`messages`.`date`,`messages`.`author_id`,`users`.`username` FROM `messages` INNER JOIN `users` ON `messages`.`author_id` =  `users`.`id` AND `discussion_id` = ?");
-        $request->execute([$discussionID]);
-        $discussion = $request->fetchAll();
-        return $discussion;
-    }
-
     public function getMessageUserID ($messageID) {
         $connection = new connectionDB();
         $conn = $connection->connection();
@@ -46,34 +29,9 @@ class messageModel
         $request->execute([$content, date("Y:m:d H:i:s"), $discussionID, $userID]);
     }
 
-    public function checkUserInDiscussion ($discussionID,$userID) {
-        $connection = new connectionDB();
-        $conn = $connection->connection();
-        $request = $conn->prepare("SELECT `discussions`.`id` FROM `discussions` INNER JOIN `discussion_members` ON `discussions`.`id` = `discussion_members`.`id` AND `discussion_members`.`member_id` = ? AND `discussions`.`id` = ?");
-        $request->execute([$userID,$discussionID]);
-        $check = $request->fetch();
-        return $check;
 
-    }
 
-    public function getDiscussionCreator ($discussionID) {
-        $connection = new connectionDB();
-        $conn = $connection->connection();
-        $request = $conn->prepare("SELECT `creator_id` FROM `discussions` WHERE `id` = ?");
-        $request->execute([$discussionID]);
-        $creator = $request->fetch();
-        return $creator;
-    }
 
-    // public function checkUserInDiscussion ($discussionID,$userID) {
-    //     $connection = new connectionDB();
-    //     $conn = $connection->connection();
-    //     $request = $conn->prepare("");
-    //     $request->execute([$discussionID,$userID]);
-    //     $check = $request->fetch();
-        
-    //     if 
-    // }
 }
 
 ?>

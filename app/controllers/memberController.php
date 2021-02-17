@@ -1,15 +1,15 @@
 <?php
 namespace controllers; 
 use models\memberModel;
-use models\messageModel;
+use models\discussionModel;
 
 class memberController
 {
     public function displayMembers ($discussionID,$userID) {
-        $messageModel = new messageModel();
+        $discussionModel = new discussionModel();
         $memberModel = new memberModel();
-        $discussions = $messageModel->getDiscussions($userID);
-        $check = $messageModel->checkUserInDiscussion($discussionID,$userID);
+        $discussions = $discussionModel->getDiscussions($userID);
+        $check = $discussionModel->checkUserInDiscussion($discussionID,$userID);
         if ($check) {
             $members = $memberModel->getMembers($discussionID);
             return $members;
@@ -17,14 +17,14 @@ class memberController
     }
 
     public function addMember ($discussionID,$member,$userID) {
-        $messageModel = new messageModel();
+        $discussionModel = new discussionModel();
         $memberModel = new memberModel();
-        $discussions = $messageModel->getDiscussions($userID);
-        $check = $messageModel->checkUserInDiscussion($discussionID,$userID);
+        $discussions = $discussionModel->getDiscussions($userID);
+        $check = $discussionModel->checkUserInDiscussion($discussionID,$userID);
         if ($check) {
             $user = $memberModel->getMemberID($member);
             if ($user) {
-                $userCheck = $messageModel->checkUserInDiscussion($discussionID,$user);
+                $userCheck = $discussionModel->checkUserInDiscussion($discussionID,$user);
                 if ($userCheck) {
                     return ["info" => "user already in group"];
                 }
@@ -41,12 +41,12 @@ class memberController
 
     public function delMember ($discussionID,$member,$userID) {
         $memberModel = new memberModel();
-        $messageModel = new messageModel();
-        $check = $messageModel->checkUserInDiscussion($discussionID,$userID);
+        $discussionModel = new discussionModel();
+        $check = $discussionModel->checkUserInDiscussion($discussionID,$userID);
         if ($check) {
-            $checkMember = $messageModel->checkUserInDiscussion($discussionID,$member);
+            $checkMember = $discussionModel->checkUserInDiscussion($discussionID,$member);
             if ($checkMember) {
-                $checkCreator = $messageModel->getDiscussionCreator($discussionID);
+                $checkCreator = $discussionModel->getDiscussionCreator($discussionID);
                 if ($checkCreator['creator_id'] === $userID) {
                     $memberModel->delMember($discussionID,$member);
                 }
