@@ -23,7 +23,7 @@
         </div>
 
         <?php if (isset($info)) : ?>
-            <div class="error"><?= var_dump($info) ?></div>
+            <div class="error"><?= $info ?></div>
         <?php endif ?>
         
         <input type="submit" value="register">

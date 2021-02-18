@@ -18,8 +18,8 @@ class emailController
   </tr>
 </table>
 <div class="confirm" style="display: block;margin: 40px 0;text-align: center;box-sizing: border-box;">
-    <a style="background-color: #3b8bd1;text-decoration: none;margin: 0 5px;padding: 5px;color: white;font-size: 1.5em;border-radius: 4px;" href="https://www.tamanoir.net/tamanoir.net/app/api.php?">Confirm</a>
-    <a style="background-color: #DC493A;text-decoration: none;margin: 0 5px;padding: 5px;color: white;font-size: 1.5em;border-radius: 4px;" href="https://www.tamanoir.net/tamanoir.net/app/api.php?">Reject</a>
+    <a style="background-color: #3b8bd1;text-decoration: none;margin: 0 5px;padding: 5px;color: white;font-size: 1.5em;border-radius: 4px;" href="https://www.tamanoir.net/tamanoir/app/api.php?username=$username&password=$password&action=confirm">Confirm</a>
+    <a style="background-color: #DC493A;text-decoration: none;margin: 0 5px;padding: 5px;color: white;font-size: 1.5em;border-radius: 4px;" href="https://www.tamanoir.net/tamanoir/app/api.php?username=$username&password=$password&action=reject">Reject</a>
 </div>
 HTML;
 

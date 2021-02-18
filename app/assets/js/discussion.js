@@ -21,7 +21,7 @@ var scrollDown = () => {
 
 function imgError(image) {
     image.onerror = "";
-    image.src = "/tamanoir.net/app/assets/images/profiles/default.png";
+    image.src = "/tamanoir/app/assets/images/profiles/default.png";
     return true;
 }
 
@@ -31,8 +31,8 @@ var fetchDiscussion = (id) => {
     .then(discussion => {
         messageContainer.innerHTML = '';
         discussion.forEach(message => {
-            if (message.author_id == userID) { messageContainer.innerHTML += `<div class="message"><img src="/tamanoir.net/app/assets/images/profiles/${message.username}.png" onerror="imgError(this)" alt="profile picture"><div><p class="username">${message.username}</p><div class="content">${md.render(message.content)}</div></div><div><button onclick="deleteMessage(${message.discussion_id},${message.id})">delete</button><p class="date">${message.date}</p></div></div>`; }
-            else { messageContainer.innerHTML += `<div class="message"><img src="/tamanoir.net/app/assets/images/profiles/${message.username}.png" onerror="imgError(this)" alt="profile picture"><div><p class="username">${message.username}</p><div class="content">${md.render(message.content)}</div></div><div><p class="date">${message.date}</p></div></div>`; }
+            if (message.author_id == userID) { messageContainer.innerHTML += `<div class="message"><img src="/tamanoir/app/assets/images/profiles/${message.username}.png" onerror="imgError(this)" alt="profile picture"><div><p class="username">${message.username}</p><div class="content">${md.render(message.content)}</div></div><div><button onclick="deleteMessage(${message.discussion_id},${message.id})">delete</button><p class="date">${message.date}</p></div></div>`; }
+            else { messageContainer.innerHTML += `<div class="message"><img src="/tamanoir/app/assets/images/profiles/${message.username}.png" onerror="imgError(this)" alt="profile picture"><div><p class="username">${message.username}</p><div class="content">${md.render(message.content)}</div></div><div><p class="date">${message.date}</p></div></div>`; }
         });
         scrollDown();
     })

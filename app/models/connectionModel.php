@@ -4,20 +4,26 @@ use models\connectionDB;
 
 class connectionModel
 {
-    public function checkUser (string $username, string $password) {
+    public function checkUser ($username,$password) {
         $connection = new connectionDB(); 
         $conn = $connection->connection();
-        
         $check = $conn->prepare("SELECT * FROM `users` WHERE `username` = ?");
         $check->execute([$username]);
         $user = $check->fetch();
         
-        if ($user) {
-            if (md5($password) === $user['password']) {
+        if (md5($password) === $user['password']) {
+            if ($user['state'] === "active") {
                 return $user;
             }
-        } else {
-            return false;
+            elseif ($user['state'] === "confirm") {
+                return "make sure that your confirmed your email";
+            }
+            elseif ($user['state'] === "blocked") {
+                return "your account as been blocked";
+            }
+        }
+        else {
+            return "username or password incorrect";
         }
     }
 
@@ -39,10 +45,10 @@ class connectionModel
         return $check; 
     }
 
-    public function addUser ($user, $email, $password, $role) {
+    public function addUser ($username, $email, $password, $role) {
         $connection = new connectionDB();
         $conn = $connection->connection();
-        $request = $conn->prepare("INSERT INTO users (username, password, email, role, state, trust) VALUES (?,?,?,?,'confirm','')");
-        $request->execute(array($username,$password,$email,$role));
+        $request = $conn->prepare("INSERT INTO `users` (`username`, `password`, `email`, `role`, `state`, `trust`) VALUES (?,?,?,?,'confirm','')");
+        $request->execute([$username,$password,$email,$role]);
     }
 }

@@ -1348,7 +1348,7 @@ nav .clicked {
 
 #inbox #discussions-container button {
   background-color: #f8f9fa;
-  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/reject_member.svg");
   background-size: 12px 12px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
@@ -1437,16 +1437,16 @@ nav .clicked {
 }
 
 #inbox #discussions-container #create-discussion.add {
-  background-image: url("/tamanoir.net/app/assets/svg/add_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/add_member.svg");
 }
 
 #inbox #discussions-container #create-discussion.confirm {
-  background-image: url("/tamanoir.net/app/assets/svg/confirm_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/confirm_member.svg");
   border: 2px solid #5fad56;
 }
 
 #inbox #discussions-container #create-discussion.reject {
-  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/reject_member.svg");
   border: 2px solid #e63946;
 }
 
@@ -1490,16 +1490,16 @@ nav .clicked {
 }
 
 #inbox #members-container #add-member.add {
-  background-image: url("/tamanoir.net/app/assets/svg/add_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/add_member.svg");
 }
 
 #inbox #members-container #add-member.confirm {
-  background-image: url("/tamanoir.net/app/assets/svg/confirm_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/confirm_member.svg");
   border: 2px solid #5fad56;
 }
 
 #inbox #members-container #add-member.reject {
-  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/reject_member.svg");
   border: 2px solid #e63946;
 }
 
@@ -1547,7 +1547,7 @@ nav .clicked {
 
 #inbox #members-container #members .member button {
   background-color: #f8f9fa;
-  background-image: url("/tamanoir.net/app/assets/svg/reject_member.svg");
+  background-image: url("/tamanoir/app/assets/svg/reject_member.svg");
   background-size: 12px 12px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
@@ -2005,6 +2005,15 @@ nav .clicked {
   color: #f8f9fa;
   font-size: 1.5em;
   cursor: pointer;
+}
+
+@media (max-width: 799px) {
+  #streaming .video-player {
+    width: 95%;
+  }
+  #streaming .video-list {
+    font-size: 1em;
+  }
 }
 
 body, html {

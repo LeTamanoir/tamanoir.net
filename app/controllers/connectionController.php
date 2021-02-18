@@ -16,25 +16,24 @@ class connectionController
     public function login ($username, $password)
     {
         $connectionModel = new connectionModel();
-        $user = $connectionModel->checkUser($username,$password);
-        if ($user) {
+        $check = $connectionModel->checkUser($username,$password);
+        if (gettype($check) === "array") {
             session_start();
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['trust'] = $user['trust'];
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $check['username'];
+            $_SESSION['email'] = $check['email'];
+            $_SESSION['role'] = $check['role'];
+            $_SESSION['trust'] = $check['trust'];
+            $_SESSION['id'] = $check['id'];
             return true;
         }
-        else {
-            return false;
+        elseif (gettype($check) === "string") {
+            return $check;
         }
     }
 
     public function register ($post) {
         require('models/settings.php');
         
-
         $connectionModel = new connectionModel();
         $emailController = new emailController();
 
@@ -54,13 +53,10 @@ class connectionController
             elseif ($post['password'] !== $post['confirm-password']) {
                 return "make sure both passwords are identical";
             }
-            // elseif (strlen($post['username']) <= 12 && strlen($post['username']) >= 4 || strlen($post['password']) <= 12 && strlen($post['password']) >= 4) {
-            //     return "username and password must be between 4 and 12 characters long";
-            // }
+            elseif (!(strlen($post['username']) <= 12 && strlen($post['username']) >= 4 && strlen($post['password']) <= 12 && strlen($post['password']) >= 4)) {
+                return "username and password must be between 4 and 12 characters long";
+            }
             else {
-                ini_set('display_errors', 1);
-                ini_set('display_startup_errors', 1);
-                error_reporting(E_ALL);
                 $mail = new PHPMailer();
                 $mail->isSMTP();
                 $mail->Host = "smtp.gmail.com";
@@ -74,15 +70,11 @@ class connectionController
                 $mail->CharSet="utf-8";
                 $mail->addAddress($_POST['email']);
                 $mail->Subject = "confirm your email";
-                $mail->MsgHTML($emailController->register($_POST['email'],$_POST['username'],$_POST['password']));
-                
-                // return $mail;
-                
+                $mail->MsgHTML($emailController->register($_POST['email'],$_POST['username'],md5($_POST['password'])));
                 if ($mail->send()) {
                     $connectionModel->addUser($_POST['username'],$_POST['email'],md5($_POST['password']),'user');
                     header('Location: ?page=Login');
                 }
-                
                 else {
                     return "unknown error";
                 }

@@ -20,7 +20,7 @@
 
         button {
             background-color: $white;
-            background-image: url('/tamanoir.net/app/assets/svg/reject_member.svg');
+            background-image: url('/tamanoir/app/assets/svg/reject_member.svg');
             background-size: 12px 12px;
             box-sizing: content-box;
             padding: 2px;
@@ -85,14 +85,14 @@
             border: 2px solid $electric;
 
             &.add {
-                background-image: url('/tamanoir.net/app/assets/svg/add_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/add_member.svg');
             }
             &.confirm {
-                background-image: url('/tamanoir.net/app/assets/svg/confirm_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/confirm_member.svg');
                 border: 2px solid $green;
             }
             &.reject {
-                background-image: url('/tamanoir.net/app/assets/svg/reject_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/reject_member.svg');
                 border: 2px solid $red;
             }
         }
@@ -129,14 +129,14 @@
             border: 2px solid $electric;
 
             &.add {
-                background-image: url('/tamanoir.net/app/assets/svg/add_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/add_member.svg');
             }
             &.confirm {
-                background-image: url('/tamanoir.net/app/assets/svg/confirm_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/confirm_member.svg');
                 border: 2px solid $green;
             }
             &.reject {
-                background-image: url('/tamanoir.net/app/assets/svg/reject_member.svg');
+                background-image: url('/tamanoir/app/assets/svg/reject_member.svg');
                 border: 2px solid $red;
             }
         }
@@ -169,7 +169,7 @@
 
                 button {
                     background-color: $white;
-                    background-image: url('/tamanoir.net/app/assets/svg/reject_member.svg');
+                    background-image: url('/tamanoir/app/assets/svg/reject_member.svg');
                     background-size: 12px 12px;
                     box-sizing: content-box;
                     padding: 2px;

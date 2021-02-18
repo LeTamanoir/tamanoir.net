@@ -19,12 +19,11 @@ if (empty($_SESSION)) {
         case "Login":
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
                 $connectionControlleur = new connectionController();
-                $check = $connectionControlleur->login($_POST['username'],$_POST['password']);
-                if ($check) {
+                $info = $connectionControlleur->login($_POST['username'],$_POST['password']);
+                if ($info === true) {
                     header('Location: ?page=Home');
                 }
                 else {
-                    $error = "password or username incorrect";
                     include('views/connection.php');
                 }
             }
@@ -42,7 +41,6 @@ if (empty($_SESSION)) {
         default;
             header('Location: ?page=Login');
     }
-
 }
 else {
     $userName = $_SESSION['username'];
@@ -79,7 +77,7 @@ else {
             break;
         case "Logout":
             session_destroy();
-            header('Location: /tamanoir.net/index.html');
+            header('Location: /tamanoir/index.html');
             break;
         default:
             header('Location: ?page=Home');

@@ -9,7 +9,7 @@
                 <a href="?page=Settings" class="<?php if ($page === "Settings") { echo "clicked"; } ?>" >Settings</a>
                 <a href="?page=Logout" class="logout">Logout</a>
             <?php else : ?>
-                <a href="/tamanoir.net/index.html">back</a>
+                <a href="/tamanoir/index.html">back</a>
             <?php endif ?>
             <div id="darkmode-container">
                 <input id="darkmode-input" type="checkbox">

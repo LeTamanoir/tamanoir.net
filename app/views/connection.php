@@ -9,8 +9,8 @@
             </div>
         </div>
 
-        <?php if (isset($error)) : ?>
-            <div class="error"><?= $error ?></div>
+        <?php if (isset($info)) : ?>
+            <div class="error"><?= $info ?></div>
         <?php endif ?>
         
         <input type="submit" value="login">
