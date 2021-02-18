@@ -34,13 +34,10 @@ if (empty($_SESSION)) {
             break;
         case "Register":
             $connectionControlleur = new connectionController();
-            $info = $connectionControlleur->register($_POST);
-            if ($info) {
-                var_dump($info);
+            if (!empty($_POST)) {
+                $info = $connectionControlleur->register($_POST);
             }
-            else {
-                include('views/register.php');
-            }
+            include('views/register.php');
             break;
         default;
             header('Location: ?page=Login');

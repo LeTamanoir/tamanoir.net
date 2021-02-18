@@ -16,8 +16,6 @@
             <button id="add-member" class="add" title="add member"></button>
         </div>
 
-
-
         <div id="discussion-container">
             <div id="messages"></div>
             <div id="input">
@@ -28,7 +26,7 @@
                 <input type="submit" id="message-send" value="send">
             </div>
         </div>
-            
+
         <script>var discussionID = <?= $_GET['discussion'] ?>;var discussionCreator = <?= $discussionCreator['creator_id'] ?>;var userID = <?= $userID ?>;</script>
         <script defer src="assets/js/discussion.js"></script>
         <script defer src="assets/js/members.js"></script>

@@ -5,3 +5,4 @@ api/package.json
 api/settings.env
 api/.env
 app/classes/videoStream.php
+app/classes/PHPMailer

@@ -68,7 +68,7 @@
             <img src="app/assets/images/profile.jpg" alt="photo de profile">
         </div>
     </section>
-    <!-- <section id="temp">
+    <section id="temp">
         <ul>
             <li>
                 I am currently studying there :
@@ -91,7 +91,7 @@
                 <img src="app/assets/images/nsi.png" alt="image de tamanoir">
             </li>
         </ul>
-    </section>  -->
+    </section>
     <section id="portfolio-skills">
         <svg viewBox="0 0 1920 168" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="svg-b" d="M0.00012207 46.3223V168.741H1920V46.3223C1620.5 183.322 1254 -107.678 960 46.3223C678 179.322 299.5 -90.6777 0.00012207 46.3223Z"/>
@@ -155,19 +155,11 @@
     </footer>
 
     <script>
-    gsap.from("#leaf-left", {duration: 1, rotate: 50, transformOrigin: '100% 75%'});
-    gsap.from("#leaf-right", {duration: 1, rotate: -50, transformOrigin: '0% 95%'});
-    gsap.from("#leaf-bg-1", {duration: 1, rotate: -50, scale: 0.5, transformOrigin: '10% 100%'});
-    gsap.from("#leaf-bg-2", {duration: 1, rotate: 50, scale: 0.5, transformOrigin: '100% 95%'});
-    gsap.from("#anteater", {duration: 1, x: 350, scale: 0.5});
-    gsap.from("#tongue", {duration: 1, scaleX: 0.5, transformOrigin: 'right', delay: 0.2});
-
-    gsap.from("#portfolio div", {duration: .8, x: -30, opacity: 0, transformOrigin: 'right', stagger: 0.1})    
-
-    var displaySkill = (entries)=>{entries.forEach(entry => { if (entry.intersectionRatio>0) { entry.target.classList.add("deploy") } } )};
-    var observer = new IntersectionObserver(displaySkill, {threshold: 1.0});
-    let skills = document.querySelectorAll('#portfolio-skills>div>div>div');
-    skills.forEach(skill => observer.observe(skill))
+    gsap.from("#portfolio div",{duration:.8,x:-30,opacity:0,transformOrigin:'right',stagger:0.1});
+    var displaySkill=(entries)=>{entries.forEach(entry=>{if(entry.intersectionRatio>0){entry.target.classList.add("deploy")}})};
+    var observer= new IntersectionObserver(displaySkill,{threshold:1.0});
+    let skills=document.querySelectorAll('#portfolio-skills>div>div>div');
+    skills.forEach(skill=>observer.observe(skill));
     </script>
 </body>
 </html>
