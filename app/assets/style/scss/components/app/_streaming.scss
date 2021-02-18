@@ -1,0 +1,83 @@
+#streaming {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+
+
+    .season-container, .show-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .back {
+        padding: 5px 10px;
+        margin: 1em 0em 0em;
+        color: $white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        background-color: $bg-1;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .video-player {
+        width: 50%;
+        height: auto;
+        padding: 10px;
+        margin: 1em;
+        border-radius: 10px;
+        background-color: $bg-3;
+
+        video {
+            border-radius: 5px;
+            width: 100%;
+        }
+    }
+    .show, .seasons {
+        width: 300px;
+        height: 280px;
+        display: flex;
+        flex-direction: column-reverse;
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 2em;
+
+        .watch {
+            width: 100%;
+            font-size: 2em;
+            font-weight: lighter;
+            padding: 5px 0;
+            text-align: center;
+            color: $white;
+            background-color: $red;
+            transition: background-color .2s ease;
+        }
+        &:hover {
+            .watch {
+                background-color: $red-dark;
+            }
+        }
+    }
+    
+    .video-list {
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: $bg-1;
+        color: $white;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+}

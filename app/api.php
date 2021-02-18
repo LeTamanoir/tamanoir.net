@@ -7,6 +7,7 @@ autoloader::register();
 use controllers\messageController;
 use controllers\memberController;
 use controllers\discussionController;
+use classes\videoStream;
 
 if (!empty($_SESSION)) {
     $userName = $_SESSION['username'];
@@ -48,13 +49,19 @@ if (!empty($_SESSION)) {
                     echo json_encode($info);
                 }
                 elseif (!empty($_GET['delDiscussion'])) {
-                    $info = $discussionController->delDiscussion($_GET['delDiscussion'],$userID);
-                    var_dump($info);
+                    $discussionController->delDiscussion($_GET['delDiscussion'],$userID);
                 }
                 else {
                     $discussion = $discussionController->displayDiscussion($_GET['discussion'],$userID);
                     echo json_encode($discussion);
                 }
+        }
+    }
+
+    if ($userTrust === "trusted") {
+        if (!empty($_GET['show']) && !empty($_GET['season']) && !empty($_GET['episode'])) {
+            $videoStream = new videoStream("/var/www/Videos/{$_GET['show']}/{$_GET['season']}/{$_GET['episode']}.mp4");
+            $videoStream->start();
         }
     }
 }

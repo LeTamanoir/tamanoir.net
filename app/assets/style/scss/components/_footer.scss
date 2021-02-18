@@ -5,7 +5,10 @@
     flex-direction: column;
     text-align: center;
 
-    .svg-b { fill: $bg-3;}
+    .svg-b { 
+        fill: $bg-3;
+        animation: svg_slide_top 10s ease infinite alternate;
+    }
 
     div {
         display: flex;

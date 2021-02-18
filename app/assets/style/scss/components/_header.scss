@@ -1,7 +1,13 @@
 body > header {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    .svg-b { fill: $bg-1; }
+}
+body > header > div {
+    width: 100%;
     padding: 1em 2em;
+    display: flex;
     justify-content: space-between;
     background-color: $bg-1;
     h1 {
@@ -9,16 +15,11 @@ body > header {
         font-size: 2.4em;
         color: $white;
     }
-    svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
 }
 
 @include phone {
-    body > header {
+    body > header > div{
         flex-direction: column;
+        align-items: center;
     }
 }

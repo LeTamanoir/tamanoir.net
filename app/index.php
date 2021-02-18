@@ -33,7 +33,14 @@ if (empty($_SESSION)) {
             }
             break;
         case "Register":
-            print_r($_GET);
+            $connectionControlleur = new connectionController();
+            $info = $connectionControlleur->register($_POST);
+            if ($info) {
+                var_dump($info);
+            }
+            else {
+                include('views/register.php');
+            }
             break;
         default;
             header('Location: ?page=Login');
@@ -61,6 +68,15 @@ else {
             }
             break;
         case "Streaming":
+            if (empty($_GET['show']) && empty($_GET['season'])) {
+                $page->streaming(null,null,$userTrust);
+            }
+            elseif (!empty($_GET['show']) && empty($_GET['season'])) {
+                $page->streaming($_GET['show'],null,$userTrust);
+            }
+            elseif (!empty($_GET['show']) && !empty($_GET['season'])) {
+                $page->streaming($_GET['show'],$_GET['season'],$userTrust);
+            }
             break;
         case "Settings":
             break;

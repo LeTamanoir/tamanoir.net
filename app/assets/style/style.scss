@@ -10,6 +10,7 @@
 @import "./scss/components/_footer";
 
 @import "./scss/components/_darkmode";
+@import "./scss/components/_animations";
 
 @import "./scss/components/index/_description";
 @import "./scss/components/index/_features";
@@ -19,11 +20,13 @@
 @import "./scss/components/portfolio/_skills";
 @import "./scss/components/portfolio/_who-am-i";
 @import "./scss/components/portfolio/_contact";
-
+@import "./scss/components/portfolio/_portfolio-my-creations";
 
 @import "./scss/components/app/_home";
 @import "./scss/components/app/_connection";
+@import "./scss/components/app/_register";
 @import "./scss/components/app/_inbox";
+@import "./scss/components/app/_streaming";
 
 body,html {
     margin: 0;

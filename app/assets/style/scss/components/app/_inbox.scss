@@ -1,22 +1,23 @@
 #inbox {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin: 1em 0 1em;
 
     #discussions-container {
+        max-width: 300px;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-
-        padding: 0 10px;
-        margin: 2em 0 1em;
-        background-color: $bg-3;
+        margin: 10px;
+        padding: 10px;
         border-radius: 25px;
+        background-color: $bg-3;
+
         .error {
             color: red;
         }
+
         button {
             background-color: $white;
             background-image: url('/tamanoir.net/app/assets/svg/reject_member.svg');
@@ -35,10 +36,10 @@
 
         #discussions {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
 
-            div {
+            .discussion {
                 display: flex;
                 margin: 1em 0;
                 margin: 5px;
@@ -48,8 +49,11 @@
                 padding: 5px 10px;
                 border-radius: 25px;
                 font-size: 1em;
+                flex-wrap: wrap;
+
                 &.clicked { background-color: $black; a { color: $white; } }
                 a {
+                    word-break: break-all;
                     text-decoration: none;
                     color: $black;
                     &:hover { text-decoration: underline; }
@@ -60,8 +64,10 @@
             background-color: $white;
             border: 2px solid $black;
             padding: 5px;
+            margin: 10px;
             border-radius: 5px;
             font-size: 1.2em;
+            width: 90%; 
         }
 
         #create-discussion {
@@ -94,25 +100,18 @@
     }
 
     #members-container {
+        max-width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: $bg-3;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 25px;
+        background-color: $bg-3;
 
-        & > div:nth-child(2) {
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            div {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                .error {
-                    color: red;
-                }
-            }
+        .error {
+            color: red;
         }
 
         #add-member {
@@ -147,11 +146,13 @@
             padding: 5px;
             border-radius: 5px;
             font-size: 1.2em;
+            margin: 10px;
+            width: 90%; 
         }
         #members {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
             .member {
                 display: flex;
                 align-items: center;
@@ -162,6 +163,7 @@
                 color: $white;
 
                 p {
+                    word-break: break-all;
                     margin: 5px 0;
                 }
 
@@ -184,10 +186,16 @@
         }
     }
 
+    #discussion-container {
+        width: 70%;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    
+    }
 
     #messages {
-        width: 80%;
-        height: 600px;
+        height: 80%;
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
@@ -253,13 +261,12 @@
 
     #input {
         display: flex;
-        width: 80%;
         align-items: center;
         justify-content: space-around;
         background-color: $bg-3;
         padding: 1em 0;
         border-radius: 20px;
-        margin: 1em 0 3em;
+        margin: 20px;
 
         & > div {
             width: 80%;
@@ -274,7 +281,6 @@
             border-radius: 10px;
             margin: 10px 0;
             background-color: $white;
-
         }
 
         #message-input {
@@ -304,9 +310,43 @@
 
 @include phone {
     #inbox {
+        flex-direction: column;
+        align-items: center;
+
+        #discussions-container {
+            max-width: unset;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            #discussions {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+        #discussion-container {
+            width: 100%;
+            margin: 1em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #members-container {
+            max-width: unset;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            #members {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }    
+
         #messages {
-            width: 95%;
-            
+            width: 90%;
             .message {
                 flex-direction: column;
                 
@@ -347,7 +387,8 @@
         }
         #input {
             display: flex;
-            width: 95%;
+            width: 90%;
+            margin: 10px 0;
             #message-output {
                 width: 90%;
             }

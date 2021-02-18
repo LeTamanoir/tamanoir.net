@@ -2,18 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    & > div:nth-of-type(1) {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: $bg-1;
-        p {
-            color: $white;
-            font-size: 3em;
-        }
+
+    h2 {
+        font-size: 3em;
+        text-align: center;
+        color: $black;
     }
-    & > div:nth-of-type(2) {
+
+    & > div {
         width: auto;
         margin: 4em 0;
         padding: 10px;
@@ -44,8 +40,8 @@
 
 @include phone {
     #home {
-        & > div:nth-of-type(1) { p { font-size: 2em; } }
-        & > div:nth-of-type(2) {
+        h2 { font-size: 2em; }
+        & > div {
             flex-direction: column;
             border-radius: 10px;
             img { width: 100px; }

@@ -8,13 +8,11 @@ use classes\Parsedown;
 class pageController 
 {
     public function navbar ($page) {
-        if ($page === "Login") {
+        if ($page === "Login" || $page === "Register") {
             $logged=false;
-
         }
         else {
             $logged=true;
-            
         }
         include("views/navbar.php");
     }
@@ -26,24 +24,24 @@ class pageController
     public function inbox ($discussionID,$userID) {
         $discussionModel = new discussionModel();
         $discussionCreator = $discussionModel->getDiscussionCreator($discussionID);
-        // $discussions = $messageModel->getDiscussions($userID);
-
-        // $check = $messageModel->checkUserInDiscussion($discussionID,$userID);
-
-        // if ($check) {
-        //     $messages = $messageModel->getDiscussion($discussionID);
-        // }
-
-        // if (!empty($discussionID)) {
-        //     foreach ($discussions as $discussion) {
-        //         if ($discussion['id'] === $discussionID) {
-        //             $messages = $messageModel->getDiscussion($discussionID);
-        //         }
-        //     }
-        // }
-
         include('views/inbox.php');
     }
+
+    public function streaming ($show, $season, $userTrust) {
+        $streamingController = new streamingController();
+        if ($show && $season) {
+            $episodes = $streamingController->displayEpisodes($show, $season);
+        }
+        elseif ($show) {
+            $seasons = $streamingController->displaySeasons($show);
+        }
+        else {
+            $shows = $streamingController->displayShows();
+        }
+
+        include('views/streaming.php');
+    }
+
 }
 
 

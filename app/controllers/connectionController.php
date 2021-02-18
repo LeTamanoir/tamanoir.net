@@ -2,9 +2,9 @@
 namespace controllers;
 use models\connectionModel;
 
-class connectionController 
+class connectionController
 {
-    public function login (string $username, string $password)
+    public function login ($username, $password)
     {
         $connectionModel = new connectionModel();
         $user = $connectionModel->checkUser($username,$password);
@@ -16,6 +16,16 @@ class connectionController
             $_SESSION['trust'] = $user['trust'];
             $_SESSION['id'] = $user['id'];
             return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function register ($post) {
+        if (!empty($post['confirm-email']) && !empty($post['email']) && !empty($post['username']) && !empty($post['password']) && !empty($post['confirm-password'])) {
+            $info = "en cours de dvlp";
+            return $info;
         }
         else {
             return false;

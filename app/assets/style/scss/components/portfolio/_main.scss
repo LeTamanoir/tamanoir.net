@@ -4,6 +4,7 @@
     margin: 0 0 6em;
     .svg-b {
         fill: $bg-1;
+        animation: svg_slide_bottom 10s ease infinite alternate;
     }
     & > div {
         width: 100%;
@@ -21,6 +22,8 @@
         }
     }
 }
+
+
 @include phone {
     #portfolio-main {
         & > div {

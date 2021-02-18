@@ -8,7 +8,10 @@
     .svg-b { fill: $bg-1; }
     .svg-t-d { fill: $text; }
     .svg-t { fill: $anim-t; }
-
+    .svg-b-b { 
+        fill: $bg-1; 
+        animation: svg_slide_bottom 10s ease infinite alternate;
+    }
     div {
         width: 100%;
         display: flex;

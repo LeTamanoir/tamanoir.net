@@ -54,6 +54,8 @@
             }
             &:nth-child(1) { p { &::before { background-color: #7289DA; } } }
             &:nth-child(2) { p { &::before { background-color: #161614; } } }
+            &:nth-child(3) { p { &::before { background-color: #EA4335; } } }
+
             img { margin: 0 1em 0 0; }
         }
     }
@@ -64,7 +66,6 @@
         ul {
             width: 80%;
             margin: 2em 0 0;
-            align-items: center;
             li {
                 p { font-size: 1.2em; }
             }

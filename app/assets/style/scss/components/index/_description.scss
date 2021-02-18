@@ -5,7 +5,15 @@
     align-items: center;
     margin: 6em 0;
 
-    .svg-b { fill: $bg-3; }
+    .svg-b-t { 
+        fill: $bg-3; 
+        animation: svg_slide_top 10s ease infinite alternate;
+    }
+    .svg-b-b { 
+        fill: $bg-3; 
+        animation: svg_slide_bottom 10s ease infinite alternate;
+    }
+
     #anim {
         .svg-b { fill: $anim; }
         .svg-b-m { fill: $bg-3; }

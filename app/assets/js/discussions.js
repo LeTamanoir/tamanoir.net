@@ -20,12 +20,9 @@ var fetchDiscussions = () => {
         discussionContainer.innerHTML = '';
         discussions.forEach(discussion => {
             if (typeof discussionID !== 'undefined') {
-                if (discussion.id == discussionID && discussion.creator_id == discussionCreator) { discussionContainer.innerHTML += `<div class="discussion clicked"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a><button onclick="deleteDiscussion(${discussion.id})"></button></div>`; }
-                
-                else if (discussion.creator_id == discussionCreator) { discussionContainer.innerHTML += `<div class="discussion"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a><button onclick="deleteDiscussion(${discussion.id})"></button></div>`; }
-                
+                if (discussion.id == discussionID && discussion.creator_id == userID) { discussionContainer.innerHTML += `<div class="discussion clicked"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a><button onclick="deleteDiscussion(${discussion.id})"></button></div>`; }
+                else if (discussion.creator_id == userID) { discussionContainer.innerHTML += `<div class="discussion"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a><button onclick="deleteDiscussion(${discussion.id})"></button></div>`; }
                 else if (discussion.id == discussionID) { discussionContainer.innerHTML += `<div class="discussion clicked"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a></div>`; }
-                
                 else { discussionContainer.innerHTML += `<div class="discussion"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a></div>`; }
             }
             else { discussionContainer.innerHTML += `<div class="discussion"><a href="?page=Inbox&discussion=${discussion.id}">${discussion.discussion}</a></div>`; }
