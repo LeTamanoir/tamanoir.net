@@ -64,13 +64,13 @@ else {
             break;
         case "Streaming":
             if (empty($_GET['show']) && empty($_GET['season'])) {
-                $page->streaming(null,null,$userTrust);
+                $page->streaming(null,null,$userTrust, $userID);
             }
             elseif (!empty($_GET['show']) && empty($_GET['season'])) {
-                $page->streaming($_GET['show'],null,$userTrust);
+                $page->streaming($_GET['show'],null,$userTrust, $userID);
             }
             elseif (!empty($_GET['show']) && !empty($_GET['season'])) {
-                $page->streaming($_GET['show'],$_GET['season'],$userTrust);
+                $page->streaming($_GET['show'],$_GET['season'],$userTrust, $userID);
             }
             break;
         case "Settings":

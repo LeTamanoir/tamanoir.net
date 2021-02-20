@@ -5,13 +5,14 @@
     align-items: center;
     margin-top: 1em;
 
-
-    .season-container, .show-container {
+    h2 {
+        color: $black; 
+    }
+    .season-container, .show-container, .last-show-container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
-    
     .back {
         padding: 5px 10px;
         margin: 1em 0em 0em;
@@ -39,20 +40,21 @@
             width: 100%;
         }
     }
-    .show, .seasons {
+    
+    .show, .seasons, .show-resume {
         width: 300px;
         height: 280px;
         display: flex;
         flex-direction: column-reverse;
         background-position: top;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         text-decoration: none;
         border-radius: 10px;
         overflow: hidden;
         margin: 2em;
 
-        .watch {
+        .watch, .watch-resume {
             width: 100%;
             font-size: 2em;
             font-weight: lighter;
@@ -62,11 +64,21 @@
             background-color: $red;
             transition: background-color .2s ease;
         }
+        .watch-resume {
+            font-size: 1.5em;
+            background-color: $electric;
+        }
         &:hover {
             .watch {
                 background-color: $red-dark;
             }
+            .watch-resume {
+                background-color: $marine;
+            }
         }
+    }
+    .show-resume {
+        height: 200px;
     }
     
     .video-list {

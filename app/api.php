@@ -8,6 +8,7 @@ use controllers\messageController;
 use controllers\memberController;
 use controllers\discussionController;
 use controllers\usersController;
+use controllers\streamingController;
 use classes\videoStream;
 
 if (!empty($_SESSION)) {
@@ -50,7 +51,7 @@ if (!empty($_SESSION)) {
                     echo json_encode($info);
                 }
                 elseif (!empty($_GET['delDiscussion'])) {
-                    $discussionController->delDiscussion($_GET['delDiscussion'],$userID);
+                   $discussionController->delDiscussion($_GET['delDiscussion'],$userID);
                 }
                 else {
                     $discussion = $discussionController->displayDiscussion($_GET['discussion'],$userID);
@@ -60,9 +61,19 @@ if (!empty($_SESSION)) {
     }
 
     if ($userTrust === "trusted") {
-        if (!empty($_GET['show']) && !empty($_GET['season']) && !empty($_GET['episode'])) {
-            $videoStream = new videoStream("/var/www/Videos/{$_GET['show']}/{$_GET['season']}/{$_GET['episode']}.mp4");
-            $videoStream->start();
+        if (!empty($_GET['show']) && !empty($_GET['season']) && !empty($_GET['episode']) && !empty($_GET['action'])) {
+            if ($_GET['action'] === 'watch') {
+                $videoStream = new videoStream("/var/www/Videos/{$_GET['show']}/{$_GET['season']}/{$_GET['episode']}.mp4");
+                $videoStream->start();
+            }
+            elseif ($_GET['action'] === 'save') {
+                $streamingController = new streamingController();
+                $streamingController->saveLastVideo($_GET['show'], $_GET['season'], $_GET['episode'], $_GET['time'], $userID);
+            }
+            elseif ($_GET['action'] === 'delete') {
+                $streamingController = new streamingController();
+                $streamingController->delLastVideo($_GET['show'], $_GET['season'], $_GET['episode'], $userID);
+            }
         }
     }
 }

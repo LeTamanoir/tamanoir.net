@@ -1210,6 +1210,7 @@ nav .clicked {
   }
   #connection input[type=password], #connection input[type=text], #connection input[type=username] {
     width: 70vw;
+    font-size: 1.2em;
   }
 }
 
@@ -1305,11 +1306,12 @@ nav .clicked {
 }
 
 @media (max-width: 799px) {
-  #connection form {
+  #register form {
     width: 80vw;
   }
-  #connection input[type=password], #connection input[type=text], #connection input[type=username] {
+  #register input[type=password], #register input[type=text], #register input[type=username], #register input[type=email], #register input[type=confirm-email] {
     width: 70vw;
+    font-size: 1.2em;
   }
 }
 
@@ -1918,7 +1920,11 @@ nav .clicked {
   margin-top: 1em;
 }
 
-#streaming .season-container, #streaming .show-container {
+#streaming h2 {
+  color: #212529;
+}
+
+#streaming .season-container, #streaming .show-container, #streaming .last-show-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1959,7 +1965,7 @@ nav .clicked {
   width: 100%;
 }
 
-#streaming .show, #streaming .seasons {
+#streaming .show, #streaming .seasons, #streaming .show-resume {
   width: 300px;
   height: 280px;
   display: -webkit-box;
@@ -1970,7 +1976,7 @@ nav .clicked {
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
   background-position: top;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   text-decoration: none;
   border-radius: 10px;
@@ -1978,7 +1984,7 @@ nav .clicked {
   margin: 2em;
 }
 
-#streaming .show .watch, #streaming .seasons .watch {
+#streaming .show .watch, #streaming .show .watch-resume, #streaming .seasons .watch, #streaming .seasons .watch-resume, #streaming .show-resume .watch, #streaming .show-resume .watch-resume {
   width: 100%;
   font-size: 2em;
   font-weight: lighter;
@@ -1990,8 +1996,21 @@ nav .clicked {
   transition: background-color .2s ease;
 }
 
-#streaming .show:hover .watch, #streaming .seasons:hover .watch {
+#streaming .show .watch-resume, #streaming .seasons .watch-resume, #streaming .show-resume .watch-resume {
+  font-size: 1.5em;
+  background-color: #5762D5;
+}
+
+#streaming .show:hover .watch, #streaming .seasons:hover .watch, #streaming .show-resume:hover .watch {
   background-color: #c71322;
+}
+
+#streaming .show:hover .watch-resume, #streaming .seasons:hover .watch-resume, #streaming .show-resume:hover .watch-resume {
+  background-color: #3d5a80;
+}
+
+#streaming .show-resume {
+  height: 200px;
 }
 
 #streaming .video-list {

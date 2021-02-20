@@ -30,4 +30,27 @@ class streamingModel
         $episodes = $request->fetchAll();
         return $episodes;
     }
+
+    public function saveLastVideo ($show, $season, $episode, $time, $userID) {
+        $connection = new connectionDB();
+        $conn = $connection->connection();
+        $request = $conn->prepare("INSERT INTO `videos_last` (`user_id`, `show`, `season`, `episode`, `time`) VALUES (?,?,?,?,?)");
+        $request->execute([$userID, "$show", "$season", $episode, $time]);
+    }
+
+    public function getLastVideos ($userID) {
+        $connection = new connectionDB();
+        $conn = $connection->connection();
+        $request = $conn->prepare("SELECT DISTINCT `season`,`show`,`episode`,`time` FROM `videos_last` WHERE `user_id` = ?");
+        $request->execute([$userID]);
+        $last = $request->fetchAll();
+        return $last;
+    }
+
+    public function delLastVideo ($show, $season, $episode, $userID) {
+        $connection = new connectionDB();
+        $conn = $connection->connection();
+        $request = $conn->prepare("DELETE FROM `videos_last` WHERE `user_id` = ? AND `show` = ? AND `season` = ? AND `episode` = ?");
+        $request->execute([$userID, $show, $season, $episode]);
+    }
 }

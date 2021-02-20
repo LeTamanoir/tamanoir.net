@@ -27,7 +27,7 @@ class pageController
         include('views/inbox.php');
     }
 
-    public function streaming ($show, $season, $userTrust) {
+    public function streaming ($show, $season, $userTrust, $userID) {
         $streamingController = new streamingController();
         if ($show && $season) {
             $episodes = $streamingController->displayEpisodes($show, $season);
@@ -37,6 +37,7 @@ class pageController
         }
         else {
             $shows = $streamingController->displayShows();
+            $displayLast = $streamingController->displayLastVideos($userID);
         }
 
         include('views/streaming.php');

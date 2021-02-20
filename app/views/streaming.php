@@ -20,6 +20,11 @@
             </select>
 
             <script defer src="assets/js/streaming.js"></script>
+            
+            <?php if (!empty($_GET['resume']) && !empty($_GET['time'])) : ?>
+                <script>var resume = "api.php?show=<?= $_GET['show'] ?>&season=S<?= $_GET['season'] ?>&episode=E<?= $_GET['resume'] ?>&action=watch";var time = <?= $_GET['time'] ?>;var episode = <?= $_GET['resume'] ?>;</script>
+            <?php endif ?>
+
             <script>var season = '<?= $_GET['season'] ?>';var show = '<?= $_GET['show'] ?>';</script>
 
         <?php elseif ($show) : ?>
@@ -38,6 +43,20 @@
 
         <?php else : ?>
 
+            <?php if (!empty($displayLast)) : ?>
+                <h2>Resume watching :</h2>
+                <div class="last-show-container">
+                    <?php foreach ($displayLast as $showLast) : ?>
+                        <a class="show-resume" style="background-image: url('assets/images/streaming/<?= $showLast['show'] ?>/banner.png');" href="?page=Streaming&show=<?= $showLast['show'] ?>&season=<?= $showLast['season'] ?>&resume=<?= $showLast['episode'] ?>&time=<?= $showLast['time'] ?>">
+                            <div class="watch-resume">
+                                season : <?= $showLast['season'] ?><br>
+                                episode : <?= $showLast['episode'] ?>
+                            </div>
+                        </a>
+                    <?php endforeach ?>
+                </div>
+            <?php endif ?>
+
             <div class="show-container">
                 <?php foreach ($shows as $show) : ?>
                                     
@@ -47,6 +66,7 @@
 
                 <?php endforeach ?>
             </div>
+
         <?php endif ?>
 
     <?php else : ?>
