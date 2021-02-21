@@ -18,7 +18,7 @@ var watchEpisode = () => {
 
 window.onbeforeunload = () => {
     time = Math.round(video.currentTime);
-    fetch(`api.php?show=${show}&season=${season}&episode=${episode}&time=${time}&action=save`)
     videoSource.src = '';
     video.load();
+    fetch(`api.php?show=${show}&season=${season}&episode=${episode}&time=${time}&action=save`)
 };

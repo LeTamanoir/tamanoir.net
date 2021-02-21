@@ -46,18 +46,21 @@
             div {
                 width: 200px;
                 height: 200px;
-                margin: 20px;
+                margin: 30px;
+                padding: 20px;
+                box-sizing: content-box;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 color: $white;
                 font-size: 2.4em;
-                border-radius: 30px;
+                border-radius: 100%;
                 overflow: hidden;
                 z-index: 1;
                 background-color: transparent;
                 position: relative;
+                transition: transform .4s ease;
 
                 &::before {
                     content: "";
@@ -78,6 +81,10 @@
                     clip-path: circle(100% at 50% 50%);
                 }
 
+                &:hover {
+                    transform: scale(1.2);
+                }
+
                 &:nth-child(1)::before { background-color: #E44F26; }
                 &:nth-child(2)::before { background-color: #1572B6; }
                 &:nth-child(3)::before { background-color: #CC6699; }
@@ -85,14 +92,6 @@
                 &:nth-child(5)::before { background-color: #8993BE; }
                 &:nth-child(6)::before { background-color: #539E43; }
                 &:nth-child(7)::before { background-color: #264D6F; }
-
-                // &:nth-child(1) { border-color: #E44F26; }
-                // &:nth-child(2) { border-color: #1572B6; }
-                // &:nth-child(3) { border-color: #CC6699; }
-                // &:nth-child(4) { border-color: #FBC02D; }
-                // &:nth-child(5) { border-color: #8993BE; }
-                // &:nth-child(6) { border-color: #539E43; }
-                // &:nth-child(7) { border-color: #264D6F; }
             }
         }
         p { width: 70%; }
@@ -104,10 +103,17 @@
 @include phone {
     #portfolio-skills {
         & > div {
-            & > ul {
-                width: 85%;
-                li {
-                    font-size: 1.2em;
+            & > div {
+                width: 90%;
+                div {
+                    font-size: 1.4em;
+                    width: 100px;
+                    height: 100px;
+                    margin: 15px;
+                    img {
+                        width: 60px;
+                        height: 60px;
+                    }
                 }
             }
         }

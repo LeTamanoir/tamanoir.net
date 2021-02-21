@@ -659,7 +659,10 @@ nav .clicked {
 #portfolio-skills > div > div div {
   width: 200px;
   height: 200px;
-  margin: 20px;
+  margin: 30px;
+  padding: 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -675,11 +678,15 @@ nav .clicked {
           justify-content: center;
   color: #f8f9fa;
   font-size: 2.4em;
-  border-radius: 30px;
+  border-radius: 100%;
   overflow: hidden;
   z-index: 1;
   background-color: transparent;
   position: relative;
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
 }
 
 #portfolio-skills > div > div div::before {
@@ -706,6 +713,11 @@ nav .clicked {
 #portfolio-skills > div > div div.deploy::before {
   -webkit-clip-path: circle(100% at 50% 50%);
           clip-path: circle(100% at 50% 50%);
+}
+
+#portfolio-skills > div > div div:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 #portfolio-skills > div > div div:nth-child(1)::before {
@@ -741,11 +753,18 @@ nav .clicked {
 }
 
 @media (max-width: 799px) {
-  #portfolio-skills > div > ul {
-    width: 85%;
+  #portfolio-skills > div > div {
+    width: 90%;
   }
-  #portfolio-skills > div > ul li {
-    font-size: 1.2em;
+  #portfolio-skills > div > div div {
+    font-size: 1.4em;
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+  }
+  #portfolio-skills > div > div div img {
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -799,8 +818,7 @@ nav .clicked {
 
 #portfolio-who-am-i div:nth-of-type(1) img {
   width: 30%;
-  -webkit-clip-path: circle(40% at 50% 50%);
-          clip-path: circle(40% at 50% 50%);
+  border-radius: 100%;
 }
 
 @media (max-width: 799px) {
@@ -816,14 +834,11 @@ nav .clicked {
   }
   #portfolio-who-am-i div p {
     font-size: 1.4em;
-    text-align: center;
-    margin: 0;
+    margin: 1em 0;
   }
-  #portfolio-who-am-i div img {
-    width: 70%;
+  #portfolio-who-am-i div:nth-of-type(1) img {
+    width: 40%;
     margin: 1em;
-    -webkit-clip-path: circle(40% at 50% 50%);
-            clip-path: circle(40% at 50% 50%);
   }
 }
 
@@ -950,7 +965,7 @@ nav .clicked {
   }
 }
 
-#temp {
+#education {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -964,80 +979,42 @@ nav .clicked {
           align-items: center;
 }
 
-#temp ul {
-  width: 65%;
-  margin: 0 0 3em;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#temp ul li {
-  width: 70%;
-  font-size: 1.4em;
-  color: var(--text);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+#education #education-output {
+  width: 60%;
   margin: 1em 0;
-  list-style: none;
+  height: auto;
+  resize: vertical;
+  color: var(--text);
+  font-size: 1.2em;
 }
 
-#temp ul li a {
+#education #education-output p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#temp ul li img {
-  margin-left: 4em;
-  width: 150px;
-  border-radius: 20px;
+#education #education-output img[alt=ind], #education #education-output img[alt=riddle] {
+  width: 64px;
+  margin: 0 10px;
 }
 
-#temp ul li:nth-child(1) img {
-  background-color: #3d5a80;
-  border-radius: 100px;
-}
-
-#temp ul li:nth-child(2) img {
-  padding: 2%;
-  background-color: #e9ecef;
+#education #education-input {
+  width: 60%;
+  margin: 2em 0;
+  height: 300px;
+  resize: vertical;
 }
 
 @media (max-width: 799px) {
-  #temp ul {
+  #education #education-output {
     width: 80%;
   }
-  #temp ul li {
-    width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-    margin: 1em 0;
-    text-align: center;
-  }
-  #temp ul li img {
-    margin-left: 0;
-    margin-bottom: 1em;
+  #education #education-input {
+    width: 80%;
   }
 }
 

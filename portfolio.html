@@ -65,33 +65,27 @@
                 I am a web-developpment enthusiast<br>
                 
             </p>
-            <img src="app/assets/images/profile.jpg" alt="photo de profile">
+            <img src="app/assets/images/profile.png" alt="photo de profile">
         </div>
     </section>
-    <!-- <section id="temp">
-        <ul>
-            <li>
-                I am currently studying there :
-                <a target="_blank" href="http://www.ind78.fr/secondaire_Notre_Dame/intro.html">
-                    <img src="app/assets/images/ind.png" alt="logo de l'IND">
-                </a>
-            </li>
-            <li>
-                The enigmas of Le Grand Tamanoir
-                <a target="_blank" href="/nsi">
-                    <img src="app/assets/svg/riddle.svg" alt="image de tamanoir">
-                </a>
-            </li>
-            <li>
-                I am a handball player. I enjoy this sport because it also helps improve skills such as throwing and jumping.
-                <img src="app/assets/images/handball.png" alt="image de tamanoir">
-            </li>
-            <li>
-                I chose NSI because it's the best course subject
-                <img src="app/assets/images/nsi.png" alt="image de tamanoir">
-            </li>
-        </ul>
-    </section> -->
+    <section id="education">
+        <div id="education-output"></div>
+        <textarea id="education-input">
+---
+
+# __Education :__
+
+- I am currently studying there : [![ind](https://www.tamanoir.net/tamanoir/app/assets/images/ind.png)](http://www.ind78.fr/secondaire_Notre_Dame/intro.html)
+
+- The enigmas of Le Grand Tamanoir : [![riddle](https://www.tamanoir.net/tamanoir/app/assets/images/riddle.png)](https://www.tamanoir.net/nsi)
+
+- I am a handball player. I enjoy this sport because it also helps improve skills such as throwing and jumping.
+
+- I am currently studying NSI which is the french for computer science. I really enjoy this subject as it is a milestone for my future studies and because I am passionate of computers and programing.
+
+---
+        </textarea>
+    </section>
     <section id="portfolio-skills">
         <svg viewBox="0 0 1920 168" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="svg-b" d="M0.00012207 46.3223V168.741H1920V46.3223C1620.5 183.322 1254 -107.678 960 46.3223C678 179.322 299.5 -90.6777 0.00012207 46.3223Z"/>
@@ -147,14 +141,33 @@
         <div>
             <p>
                 made by LeTamanoir | © All rights reserved
-                <!-- | <a target="_blank" href="http://arvialo0o.teyssieux.fr/default.php">
+                | <a target="_blank" href="http://arvialo0o.teyssieux.fr/default.php">
                     Site de Arthur
-                </a> -->
+                </a>
             </p>
         </div>
     </footer>
 
     <script>
+    var educationInput = document.getElementById("education-input");
+    var educationOutput = document.getElementById("education-output");
+    var md = window.markdownit({
+        html: true,
+        linkify: true,
+        typographer: true,
+        breaks: true, 
+        highlight: function (str, lang) { return '<pre class="hljs"><code>' + hljs.highlight(lang, str).value + '</code></pre>'; }
+    })
+
+    educationInput.addEventListener('input', () => {
+        educationOutput.innerHTML = md.render(educationInput.value);
+    })
+
+    educationOutput.innerHTML = md.render(educationInput.value);
+
+
+
+
     gsap.from("#portfolio div",{duration:.8,x:-30,opacity:0,transformOrigin:'right',stagger:0.1});
     var displaySkill=(entries)=>{entries.forEach(entry=>{if(entry.intersectionRatio>0){entry.target.classList.add("deploy")}})};
     var observer= new IntersectionObserver(displaySkill,{threshold:1.0});
