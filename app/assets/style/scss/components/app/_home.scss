@@ -4,12 +4,13 @@
     align-items: center;
 
     h2 {
-        font-size: 3em;
         text-align: center;
         color: $black;
     }
+    h2:nth-of-type(1) { font-size: 3em; }
+    h2:nth-of-type(2) { font-size: 2em; }
 
-    & > div {
+    & > div:nth-of-type(1) {
         width: auto;
         margin: 4em 0;
         padding: 10px;
@@ -36,16 +37,52 @@
             td { word-break: break-all; }
         }
     }
+
+    & > div:nth-of-type(2) {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80%;
+
+        a {
+            width: 240px;
+            height: 220px;
+            display: flex;
+            flex-direction: column-reverse;
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-decoration: none;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2em;
+
+            div {
+                width: 100%;
+                font-size: 1em;
+                padding: 5px 0;
+                text-align: center;
+                color: $white;
+                background-color: $red;
+                transition: background-color .2s ease;
+                &:hover { background-color: $red-dark; }
+            }
+        }
+    }
 }
 
 @include phone {
     #home {
         h2 { font-size: 2em; }
-        & > div {
+        & > div:nth-of-type(1) {
             flex-direction: column;
             border-radius: 10px;
             img { width: 100px; }
             table { margin: 0 .5em; }
+        }
+        & > div:nth-of-type(2) {
+            width: 90%;
+            a { margin: 1em; }
         }
     }
 }

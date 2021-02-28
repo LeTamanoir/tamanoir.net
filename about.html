@@ -70,8 +70,7 @@
     </section>
     <section id="education">
         <div id="education-output"></div>
-        <textarea id="education-input">
----
+        <textarea id="education-input">---
 
 # __Education :__
 
@@ -83,8 +82,7 @@
 
 - I am currently studying NSI which is the french for computer science. I really enjoy this subject as it is a milestone for my future studies and because I am passionate of computers and programing.
 
----
-        </textarea>
+---</textarea>
     </section>
     <section id="portfolio-skills">
         <svg viewBox="0 0 1920 168" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,33 +145,7 @@
             </p>
         </div>
     </footer>
-
-    <script>
-    var educationInput = document.getElementById("education-input");
-    var educationOutput = document.getElementById("education-output");
-    var md = window.markdownit({
-        html: true,
-        linkify: true,
-        typographer: true,
-        breaks: true, 
-        highlight: function (str, lang) { return '<pre class="hljs"><code>' + hljs.highlight(lang, str).value + '</code></pre>'; }
-    })
-
-    educationInput.addEventListener('input', () => {
-        educationOutput.innerHTML = md.render(educationInput.value);
-    })
-
-    educationOutput.innerHTML = md.render(educationInput.value);
-
-
-
-
-    gsap.from("#portfolio div",{duration:.8,x:-30,opacity:0,transformOrigin:'right',stagger:0.1});
-    var displaySkill=(entries)=>{entries.forEach(entry=>{if(entry.intersectionRatio>0){entry.target.classList.add("deploy")}})};
-    var observer= new IntersectionObserver(displaySkill,{threshold:1.0});
-    let skills=document.querySelectorAll('#portfolio-skills>div>div>div');
-    skills.forEach(skill=>observer.observe(skill));
-    </script>
+    <script>var educationInput = document.getElementById("education-input");var educationOutput = document.getElementById("education-output");var md = window.markdownit({html: true,linkify: true,typographer: true,breaks: true,highlight: function (str, lang) { return '<pre class="hljs"><code>' + hljs.highlight(lang, str).value + '</code></pre>'; }});educationInput.addEventListener('input', () => { educationOutput.innerHTML = md.render(educationInput.value); });educationOutput.innerHTML = md.render(educationInput.value);gsap.from("#portfolio div",{duration:.8,x:-30,opacity:0,transformOrigin:'right',stagger:0.1});var displaySkill=(entries)=>{entries.forEach(entry=>{if(entry.intersectionRatio>0){entry.target.classList.add("deploy")}})};var observer= new IntersectionObserver(displaySkill,{threshold:1.0});let skills=document.querySelectorAll('#portfolio-skills>div>div>div');skills.forEach(skill=>observer.observe(skill));</script>
 </body>
 </html>
 

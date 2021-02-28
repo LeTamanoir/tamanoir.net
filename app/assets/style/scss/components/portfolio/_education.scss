@@ -3,32 +3,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     #education-output {
         width: 60%;
         margin: 1em 0;
         height: auto;
         resize: vertical;
-
         color: $text;
         font-size: 1.2em;
-
         p {
             display: flex;
             align-items: center;
         }
-
         img[alt=ind],img[alt=riddle] {
             width: 64px;
             margin: 0 10px;
         }
     }
-
     #education-input {
         width: 60%;
-        margin: 2em 0;
+        margin: 4em 0;
         height: 300px;
         resize: vertical;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 1.2em;
+        border: solid 2px $black;
+        border-radius: 4px;
     }
 }
 @include phone {

@@ -51,7 +51,7 @@ else {
 
     switch ($_GET['page']) {
         case "Home":
-            $page->home($userName,$userEmail);
+            $page->home($userName,$userEmail,$userTrust);
     
             break;
         case "Inbox":

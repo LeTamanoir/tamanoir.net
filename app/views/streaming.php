@@ -51,9 +51,11 @@
                             <div class="watch-resume">
                                 season : <?= $showLast['season'] ?><br>
                                 episode : <?= $showLast['episode'] ?>
+                                <button onclick="return deleteLast('<?= $showLast['show'] ?>','<?= $showLast['season'] ?>',<?= $showLast['episode'] ?>);"></button>
                             </div>
                         </a>
                     <?php endforeach ?>
+                    <script>var deleteLast = (show,season,episode) => { fetch(`api.php?show=${show}&season=${season}&episode=${episode}&action=delete`).then(location.reload()); return false; };</script>
                 </div>
             <?php endif ?>
 

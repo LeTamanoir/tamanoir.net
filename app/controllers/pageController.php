@@ -17,7 +17,9 @@ class pageController
         include("views/navbar.php");
     }
 
-    public function home ($username,$useremail) {
+    public function home ($username,$useremail,$userTrust) {
+        $notificationController = new notificationController();
+        $news = $notificationController->displayNews();
         include('views/home.php');
     }
 

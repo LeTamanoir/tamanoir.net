@@ -7,6 +7,7 @@ if (typeof(resume) != 'undefined') {
     video.load();
     video.currentTime = time;
     fetch(`api.php?show=${show}&season=${season}&episode=${episode}&action=delete`)
+    
 }
 
 var watchEpisode = () => {
@@ -20,5 +21,7 @@ window.onbeforeunload = () => {
     time = Math.round(video.currentTime);
     videoSource.src = '';
     video.load();
-    fetch(`api.php?show=${show}&season=${season}&episode=${episode}&time=${time}&action=save`)
+    if (time > 0) {
+        fetch(`api.php?show=${show}&season=${season}&episode=${episode}&time=${time}&action=save`)
+    }
 };
