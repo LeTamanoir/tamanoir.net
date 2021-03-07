@@ -1,4 +1,4 @@
-#index-footer, #portfolio-footer {
+footer{
     width: 100%;
     margin: 4em 0 0;
     display: flex;
@@ -26,7 +26,7 @@
 }
 
 @include phone {
-    #portfolio-footer, #index-footer {
+    footer {
         p {
             font-size: 1em;
         }

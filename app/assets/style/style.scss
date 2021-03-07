@@ -1,32 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
-@import "./scss/_variables";
-@import "./scss/_mixins";
-@import "./scss/_placeholders";
+@import "./scss/variables";
+@import "./scss/mixins";
+@import "./scss/placeholders";
 
-@import "./scss/components/_header";
-@import "./scss/components/_main";
-@import "./scss/components/_navbar";
-@import "./scss/components/_footer";
+@import "./scss/components/header";
+@import "./scss/components/main";
+@import "./scss/components/navbar";
+@import "./scss/components/footer";
 
-@import "./scss/components/_darkmode";
-@import "./scss/components/_animations";
+@import "./scss/components/darkmode";
+@import "./scss/components/animations";
 
-@import "./scss/components/index/_description";
-@import "./scss/components/index/_features";
-@import "./scss/components/index/_main";
+@import "./scss/components/index/description";
+@import "./scss/components/index/features";
+@import "./scss/components/index/main";
 
-@import "./scss/components/portfolio/_main";
-@import "./scss/components/portfolio/_skills";
-@import "./scss/components/portfolio/_who-am-i";
-@import "./scss/components/portfolio/_contact";
-@import "./scss/components/portfolio/_education";
+@import "./scss/components/portfolio/main";
+@import "./scss/components/portfolio/skills";
+@import "./scss/components/portfolio/who-am-i";
+@import "./scss/components/portfolio/contact";
+@import "./scss/components/portfolio/education";
 
-@import "./scss/components/app/_home";
-@import "./scss/components/app/_connection";
-@import "./scss/components/app/_register";
-@import "./scss/components/app/_inbox";
-@import "./scss/components/app/_streaming";
+@import "./scss/components/app/home";
+@import "./scss/components/app/connection";
+@import "./scss/components/app/register";
+@import "./scss/components/app/inbox";
+@import "./scss/components/app/streaming";
 
 body,html {
     margin: 0;

@@ -6,9 +6,10 @@
                 <a href="?page=Home" class="<?php if ($page === "Home") { echo "clicked"; } ?>" >Home</a>
                 <a href="?page=Inbox" class="<?php if ($page === "Inbox") { echo "clicked"; } ?>" >Inbox</a>
                 <a href="?page=Streaming" class="<?php if ($page === "Streaming") { echo "clicked"; } ?>" >Streaming</a>
-                <a href="?page=Settings" class="<?php if ($page === "Settings") { echo "clicked"; } ?>" >Settings</a>
                 <a href="?page=Logout" class="logout">Logout</a>
             <?php else : ?>
+                <a href="?page=Login" class="<?php if ($page === "Login") { echo "clicked"; } ?>" >login</a>
+                <a href="?page=Register" class="<?php if ($page === "Register") { echo "clicked"; } ?>" >register</a>
                 <a href="/tamanoir/index.html">back</a>
             <?php endif ?>
             <div id="darkmode-container">

@@ -4,43 +4,33 @@
     flex-direction: column;
     align-items: center;
     margin: 0;
-    
-    .svg-b { fill: $bg-1; }
-    .svg-t-d { fill: $text; }
-    .svg-t { fill: $anim-t; }
+
     .svg-b-b { 
         fill: $bg-1; 
         animation: svg_slide_bottom 10s ease infinite alternate;
     }
     div {
-        width: 100%;
+        width: 70%;
         display: flex;
-        justify-content: center;
-        background-color: $bg-1;
-        padding: 4vh 0;
-
+        justify-content: space-between;
+        align-items: center;
+        margin: 4em 0;
     }
-    p { font-size: 5.6em; color: $white; }
+    p {
+        width: 50%;
+        font-size: 3.4rem; 
+        color: $text;
+    }
+    #anim_1 { width: 45%; }
     span { font-weight: bold; }
-    .anim-2 {
-        width: 90%;
-        margin: 12em 0 6em;
-        overflow: visible;
-        .svg-b { fill: $card; }
-    }
-    .desktop { display: block; }
-    .mobile { display: none; }
 }
 @include phone {
     #index-main {
-        flex-direction: column;
+        div { flex-direction: column; }
         p {
-            width: 80%;
-            margin: 1em 0 2em;
-            font-size: 2.2em;
+            width: 100%;
+            font-size: 2.4rem;
         }
-        .anim-2 { margin: 6em 0 0; }
-        .desktop { display: none; }
-        .mobile { display: block; }
+        #anim_1 { width: 95%; }
     }
 }

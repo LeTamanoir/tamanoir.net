@@ -52,7 +52,6 @@ else {
     switch ($_GET['page']) {
         case "Home":
             $page->home($userName,$userEmail,$userTrust);
-    
             break;
         case "Inbox":
             if (!empty($_GET['discussion'])) {
@@ -72,8 +71,6 @@ else {
             elseif (!empty($_GET['show']) && !empty($_GET['season'])) {
                 $page->streaming($_GET['show'],$_GET['season'],$userTrust, $userID);
             }
-            break;
-        case "Settings":
             break;
         case "Logout":
             session_destroy();
